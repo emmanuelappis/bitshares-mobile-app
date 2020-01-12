@@ -14,9 +14,9 @@
 #import "VCFeedPriceDetail.h"
 #import "VCBtsaiWebView.h"
 #import "VCTransfer.h"
-#import "VCAdvancedFeatures.h"
+// #import "VCAdvancedFeatures.h"
 #import "VCVote.h"
-#import "VCDepositWithdrawList.h"
+// #import "VCDepositWithdrawList.h"
 
 #import "WalletManager.h"
 #import "OrgUtils.h"
@@ -32,9 +32,9 @@ enum
     kVcSubCallRanking,      //  抵押排行
     kVcSubFeedPriceDetail,  //  喂价详情
     
-    kVcSubDepositWithdraw,  //  充币&提币
+    // kVcSubDepositWithdraw,  //  充币&提币
     
-    kVcSubAdvanced,         //  更多高级功能(HTLC等）
+    // kVcSubAdvanced,         //  更多高级功能(HTLC等）
     
     kVcSubBtsExplorer,      //  X4T区块浏览器
 };
@@ -95,21 +95,21 @@ enum
             [ary addObject:pSection3];
         }
         
-        NSArray* pSection4 = [[[NSMutableArray array] ruby_apply:(^(id obj) {
-#if kAppModuleEnableGateway
-            [obj addObject:@[@(kVcSubDepositWithdraw),   @"kServicesCellLabelDepositWithdraw"]];    //  充币提币
-#endif  //  kAppModuleEnableGateway
-        })] copy];
-        if ([pSection4 count] > 0) {
-            [ary addObject:pSection4];
-        }
+//         NSArray* pSection4 = [[[NSMutableArray array] ruby_apply:(^(id obj) {
+// #if kAppModuleEnableGateway
+//             [obj addObject:@[@(kVcSubDepositWithdraw),   @"kServicesCellLabelDepositWithdraw"]];    //  充币提币
+// #endif  //  kAppModuleEnableGateway
+//         })] copy];
+//         if ([pSection4 count] > 0) {
+//             [ary addObject:pSection4];
+//         }
         
-        NSArray* pSection5 = @[
-                               @[@(kVcSubAdvanced),         @"kServicesCellLabelAdvFunction"]       //  高级功能
-                               ];
-        if ([pSection5 count] > 0) {
-            [ary addObject:pSection5];
-        }
+        // NSArray* pSection5 = @[
+        //                        @[@(kVcSubAdvanced),         @"kServicesCellLabelAdvFunction"]       //  高级功能
+        //                        ];
+        // if ([pSection5 count] > 0) {
+        //     [ary addObject:pSection5];
+        // }
         
         NSArray* pSection6 = @[
                                @[@(kVcSubBtsExplorer),      @"kServicesCellLabelBtsExplorer"]       //  X4T区块浏览器
@@ -215,13 +215,13 @@ enum
             cell.imageView.image = [UIImage templateImageNamed:@"iconFeedDetail"];
             break;
             
-        case kVcSubDepositWithdraw:
-            cell.imageView.image = [UIImage templateImageNamed:@"iconDepositWithdraw"];
-            break;
+        // case kVcSubDepositWithdraw:
+        //     cell.imageView.image = [UIImage templateImageNamed:@"iconDepositWithdraw"];
+        //     break;
             
-        case kVcSubAdvanced:
-            cell.imageView.image = [UIImage templateImageNamed:@"iconAdvFunction"];
-            break;
+        // case kVcSubAdvanced:
+        //     cell.imageView.image = [UIImage templateImageNamed:@"iconAdvFunction"];
+        //     break;
             
         case kVcSubBtsExplorer:
             cell.imageView.image = [UIImage templateImageNamed:@"iconExplorer"];
@@ -321,22 +321,22 @@ enum
                 break;
             }
                 
-            case kVcSubDepositWithdraw: //  充提（需要登录）
-            {
-                [self GuardWalletExist:^{
-                    VCDepositWithdrawList* vc = [[VCDepositWithdrawList alloc] init];
-                    vc.title = NSLocalizedString(@"kVcTitleDepositWithdraw", @"冲币提币");
-                    [self pushViewController:vc vctitle:nil backtitle:kVcDefaultBackTitleName];
-                }];
-                break;
-            }
+            // case kVcSubDepositWithdraw: //  充提（需要登录）
+            // {
+            //     [self GuardWalletExist:^{
+            //         VCDepositWithdrawList* vc = [[VCDepositWithdrawList alloc] init];
+            //         vc.title = NSLocalizedString(@"kVcTitleDepositWithdraw", @"冲币提币");
+            //         [self pushViewController:vc vctitle:nil backtitle:kVcDefaultBackTitleName];
+            //     }];
+            //     break;
+            // }
                 
-            case kVcSubAdvanced:        //  高级功能
-            {
-                vc = [[VCAdvancedFeatures alloc] init];
-                vc.title = NSLocalizedString(@"kVcTitleDepositAdvFunction", @"高级功能");
-                break;
-            }
+            // case kVcSubAdvanced:        //  高级功能
+            // {
+            //     vc = [[VCAdvancedFeatures alloc] init];
+            //     vc.title = NSLocalizedString(@"kVcTitleDepositAdvFunction", @"高级功能");
+            //     break;
+            // }
                 
             case kVcSubBtsExplorer:     //  X4T区块浏览器（bts.ai）
                 [OrgUtils safariOpenURL:[NSString stringWithFormat:@"https://bts.ai?lang=%@", NSLocalizedString(@"btsaiLangKey", @"langkey")]];
