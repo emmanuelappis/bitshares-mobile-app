@@ -64,7 +64,7 @@ class FragmentVoting : BtsppFragment() {
 
     override fun onInitParams(args: Any?) {
         _vote_type = args as VotingTypes
-        val bts_asset = ChainObjectManager.sharedChainObjectManager().getChainObjectByID(BTS_NETWORK_CORE_ASSET_ID)
+        val bts_asset = ChainObjectManager.sharedChainObjectManager().getChainObjectByID(X4T_NETWORK_CORE_ASSET_ID)
         _bts_precision = bts_asset.getInt("precision")
         _bts_precision_pow = 10.0.pow(_bts_precision)
     }

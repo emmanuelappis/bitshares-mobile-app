@@ -51,7 +51,7 @@
     <string name="kServicesCellLabelFeedPrice">喂价详情</string>
     <string name="kServicesCellLabelDepositWithdraw">充币提币</string>
     <string name="kServicesCellLabelAdvFunction">高级功能</string>
-    <string name="kServicesCellLabelBtsExplorer">BTS浏览器</string>
+    <string name="kServicesCellLabelBtsExplorer">X4T浏览器</string>
     <!-- 扫一扫相关字符串 -->
     <string name="kVcScanPermissionNoCamera">未检测到您的摄像头。</string>
     <string name="kVcScanPermissionSystemLimit">因为系统原因, 无法访问相册。</string>
@@ -227,7 +227,7 @@
     <string name="kLoginPageModeBrainKey">助记词</string>
     <string name="kLoginPageModePrivateKey">私钥模式</string>
     <string name="kLoginPageModeWallet">钱包模式</string>
-    <string name="kLoginTipsPlaceholderAccount">请输入 Bitshares 账号名</string>
+    <string name="kLoginTipsPlaceholderAccount">请输入 Cryptonex 账号名</string>
     <string name="kLoginTipsPlaceholderBrainKey">请输入助记词，每个单词之间按空格分割。</string>
     <string name="kLoginTipsPlaceholderTradePassword">请输入交易密码</string>
     <string name="kLoginTipsPlaceholderActiveKey">请输入资金权限私钥</string>
@@ -256,7 +256,7 @@
     <string name="kLoginImportTipsPleaseInputPassword">请输入密码。</string>
     <string name="kLoginImportTipsReadWalletFailed">读取钱包文件失败。</string>
     <string name="kLoginImportTipsInvalidFileOrPassword">钱包文件无效或密码不正确。</string>
-    <string name="kLoginImportTipsNotBTSWallet">该钱包不是Bitshares区块链的钱包。</string>
+    <string name="kLoginImportTipsNotX4TWallet">该钱包不是Cryptonex区块链的钱包。</string>
     <string name="kLoginImportTipsWalletIsEmpty">该钱包为空钱包，请重选选择。</string>
     <string name="kLoginImportTipsWalletHaveManyAccounts">该钱包包含多个账户，不支持导入。</string>
     <string name="kLoginImportTipsWalletNoPrivateKey">该钱包不包含密钥信息，请重新选择。</string>
@@ -648,7 +648,7 @@
     <string name="kSettingCurrencyNameEUR">欧元</string>
     <string name="kSettingCurrencyNameJPY">日元</string>
     <string name="kSettingCurrencyNameKRW">韩元</string>
-    <string name="kSettingCurrencyNameBTS">比特股核心资产</string>
+    <string name="kSettingCurrencyNameX4T">比特股核心资产</string>
     <!-- 各种VC标题栏名字 -->
     <string name="kVcTitleLogin">登录</string>
     <string name="kVcTitleImportAccount">导入账号</string>
@@ -885,9 +885,9 @@
     <string name="kNormalCellBtnCreateWallet">创建钱包</string>
     <string name="kTipsInitialize">初始化中…</string>
     <string name="kTipsBeRequesting">请求中…</string>
-    <string name="kTipsTxFeeNotEnough">手续费不足，请确保账号有足额的 BTS/CNY/USD 用于支付网络手续费。</string>
+    <string name="kTipsTxFeeNotEnough">手续费不足，请确保账号有足额的 X4T/CNY/USD 用于支付网络手续费。</string>
     <string name="kTipsTxRequestFailed">请求失败，请稍后再试。</string>
-    <string name="kSearchPlaceholderAccount">请输入有效的 Bitshares 账号名</string>
+    <string name="kSearchPlaceholderAccount">请输入有效的 Cryptonex 账号名</string>
     <string name="kSearchPlaceholderAsset">点击搜索新资产</string>
     <string name="kSearchTipsMyFavAccount">我的关注(%s人)</string>
     <string name="kSearchTipsMyCustomPairs">我的交易对(%s个)</string>

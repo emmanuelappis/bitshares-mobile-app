@@ -831,7 +831,7 @@ class FragmentTradeMainPage : BtsppFragment() {
                 //  买单：卖出 CNY
                 issell = false
             } else if (base_id == _tradingPair._quoteId && quote_id == _tradingPair._baseId) {
-                //  卖单：卖出 BTS
+                //  卖单：卖出 X4T
                 issell = true
             } else {
                 //  其他交易对的订单

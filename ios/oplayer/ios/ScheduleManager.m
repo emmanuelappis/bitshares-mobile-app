@@ -108,8 +108,8 @@ static ScheduleManager *_sharedScheduleManager = nil;
  */
 - (void)autoRefreshTickerScheduleByMergedMarketInfos
 {
-//    //  TODO:DEBUG only test BTS
-//    [self addTickerUpdateSchedule:@"CNY" quote:@"BTS"];
+//    //  TODO:DEBUG only test X4T
+//    [self addTickerUpdateSchedule:@"CNY" quote:@"X4T"];
 //    return;
     
     //  标记Hash

@@ -199,7 +199,7 @@
     //    "limit_order_value" = 25998000;
     //    "call_order_value" = 10020;       - 可选
     //    "debt_value" = 114388393621;      - 可选
-    //    id = "1.3.113";
+    //    id = "1.3.10";
     //    "is_smart" = 1;
     //    kPriority = 100;
     //    name = CNY;

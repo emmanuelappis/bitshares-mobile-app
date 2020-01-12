@@ -1292,7 +1292,7 @@ static int _unique_nonce_entropy = -1;              //  辅助生成 unique64 �
                   @"brainkey_sequence":@0,
                   
                   @"chain_id":[ChainObjectManager sharedChainObjectManager].grapheneChainID,
-                  @"author":@"BTS++",           //  add by btspp team
+                  @"author":@"X4T++",           //  add by btspp team
                   };
     
     id final_object = @{
@@ -1306,7 +1306,7 @@ static int _unique_nonce_entropy = -1;              //  辅助生成 unique64 �
 }
 
 /**
- *  (public) 格式化时间戳为BTS官方钱包中的日期格式。格式：2018-07-15T01:45:19.731Z。
+ *  (public) 格式化时间戳为X4T官方钱包中的日期格式。格式：2018-07-15T01:45:19.731Z。
  */
 - (NSString*)genWalletTimeString:(NSTimeInterval)time_secs
 {

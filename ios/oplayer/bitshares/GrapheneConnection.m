@@ -101,7 +101,7 @@
 - (void)onKeepAliveCallback:(BOOL)closed
 {
     if ([_api_db isInited] && !closed){
-        [[[_api_db exec:@"get_objects" params:@[@[BTS_DYNAMIC_GLOBAL_PROPERTIES_ID]] auto_reconnect:NO] then:(^id(id data) {
+        [[[_api_db exec:@"get_objects" params:@[@[X4T_DYNAMIC_GLOBAL_PROPERTIES_ID]] auto_reconnect:NO] then:(^id(id data) {
             NSLog(@"onKeepAliveCallback done: %@", data);
             return nil;
         })] catch:(^id(id error) {

@@ -1,9 +1,9 @@
-# Bitshares - 移动端应用
+# Cryptonex - 移动端应用
 
-该源代码是 [Bitshares](https://how.bitshares.works/en/master/technology/what_bitshares.html) 区块链的移动端应用程序。
+该源代码是 [Cryptonex](https://how.bitshares.works/en/master/technology/what_bitshares.html) 区块链的移动端应用程序。
 
 ## 关于
-Bitshares Mobile App 是 [Bitshares区块链](https://github.com/bitshares/bitshares-core) 的移动端钱包。
+Cryptonex Mobile App 是 [Cryptonex区块链](https://github.com/bitshares/bitshares-core) 的移动端钱包。
 
 包含特性
 
@@ -42,7 +42,7 @@ Bitshares Mobile App 是 [Bitshares区块链](https://github.com/bitshares/bitsh
 * 对于Android：在 AndroidManifest.xml 中搜索 `1111111111111111111111111111111111111111 ` 占位符并使用您的apikey替换即可。
 
 ## 开源协议
-BitShares Mobile App 遵循MIT许可协议。有关更多信息，请参阅[LICENSE](https://github.com/btspp/bitshares-mobile-app/blob/master/LICENSE)。
+CRYPTONEX Mobile App 遵循MIT许可协议。有关更多信息，请参阅[LICENSE](https://github.com/btspp/bitshares-mobile-app/blob/master/LICENSE)。
 
 ## 联系我们
 有关此项目开发和使用的任何问题可在[电报/Telegram](https://t.me/btsplusplus)群组中与我们联系。

@@ -8,7 +8,7 @@ function onReceiveFromAndroid(params){
   alert("回调了")
   const type = params.type;
   if (type === "submit_response") {
-    alert("提交成功: " + params.amount + " BTS");
+    alert("提交成功: " + params.amount + " X4T");
   }
 }
 

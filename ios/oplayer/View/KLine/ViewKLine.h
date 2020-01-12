@@ -41,37 +41,37 @@ typedef enum EKlineDatePeriodType
 } EKlineDatePeriodType;
 
 //  K线周期菜单末尾 指标按钮
-#define kBTS_KLINE_INDEX_BUTTON_VALUE   1000
+#define kX4T_KLINE_INDEX_BUTTON_VALUE   1000
 
 //  K线周期菜单末尾 更多按钮
-#define kBTS_KLINE_MORE_BUTTON_VALUE    1010
+#define kX4T_KLINE_MORE_BUTTON_VALUE    1010
 
 //  K线图中价格区间、日期区间、最低最高价格、成交量、MA信息等小主要文字字号
-#define kBTS_KLINE_PRICE_VOL_FONTSIZE   10
+#define kX4T_KLINE_PRICE_VOL_FONTSIZE   10
 
 //  K线背景边框行列数
-#define kBTS_KLINE_COL_NUM              4
-#define kBTS_KLINE_ROW_NUM              5
+#define kX4T_KLINE_COL_NUM              4
+#define kX4T_KLINE_ROW_NUM              5
 
 //  K线MA等指标区域高度（相对于ROW的比例，比如行高80，则MA高度20。）
-#define kBTS_KLINE_MA_HEIGHT            0.25
+#define kX4T_KLINE_MA_HEIGHT            0.25
 
 //  K线蜡烛图实体默认宽度、最小宽度、最大宽度（影响缩放）
-#define kBTS_KLINE_CANDLE_WIDTH         3
-#define kBTS_KLINE_CANDLE_WIDTH_MIN     0
-#define kBTS_KLINE_CANDLE_WIDTH_MAX     9
+#define kX4T_KLINE_CANDLE_WIDTH         3
+#define kX4T_KLINE_CANDLE_WIDTH_MIN     0
+#define kX4T_KLINE_CANDLE_WIDTH_MAX     9
 
 //  K线蜡烛图影线宽度
-#define kBTS_KLINE_SHADOW_WIDTH         1
+#define kX4T_KLINE_SHADOW_WIDTH         1
 
 //  K线蜡烛图之间的间隔宽度
-#define kBTS_KLINE_INTERVAL             2
+#define kX4T_KLINE_INTERVAL             2
 
 //  K线最多显示的蜡烛图数量（一直往回滑动）    TODO:fowallet huobi是300，bts一次最多返回200，300需要多次请求。
-#define kBTS_KLINE_MAX_SHOW_CANDLE_NUM  200
+#define kX4T_KLINE_MAX_SHOW_CANDLE_NUM  200
 
 //  K线中指向最低价格、最高价格的短横线长度
-#define kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH   12
+#define kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH   12
 
 @interface ViewKLine : UITableViewCellBase
 

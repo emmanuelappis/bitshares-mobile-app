@@ -421,7 +421,7 @@ class ActivityGatewayWithdraw : BtsppActivity() {
         val op = JSONObject().apply {
             put("fee", JSONObject().apply {
                 put("amount", 0)
-                put("asset_id", BTS_NETWORK_CORE_ASSET_ID)
+                put("asset_id", X4T_NETWORK_CORE_ASSET_ID)
             })
             put("from", from_account.getString("id"))
             put("to", to_account.getString("id"))

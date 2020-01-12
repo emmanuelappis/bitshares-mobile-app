@@ -40,7 +40,7 @@ abstract class BtsppActivity : AppCompatActivity() {
             //  [统计]
             btsppLogCustom("onBtsppParamsRestore", jsonObjectfromKVS("activity", this::class.java.name, "param_id", _btspp_param_id))
         } else {
-            _btspp_param_id = intent.getIntExtra(BTSPP_START_ACTIVITY_PARAM_ID, -1)
+            _btspp_param_id = intent.getIntExtra(X4TPP_START_ACTIVITY_PARAM_ID, -1)
         }
         if (_btspp_param_id > 0) {
             _btspp_params = ParametersManager.sharedParametersManager().getParams(_btspp_param_id)

@@ -239,7 +239,7 @@
     }
     [self showBlockViewWithTitle:NSLocalizedString(@"kVcScanProcessingResult", @"正在处理...")];
     [self delay:^{
-        //  1、判断是否是BTS私钥。
+        //  1、判断是否是X4T私钥。
         NSString* btsAddress = [OrgUtils genBtsAddressFromWifPrivateKey:result];
         if (btsAddress){
             [self _processScanResultAsPrivateKey:result pubkey:btsAddress];

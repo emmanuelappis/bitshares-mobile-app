@@ -136,7 +136,7 @@
 - (CAShapeLayer*)genCandleLayer:(MKlineItemData*)model index:(NSInteger)index candle_width:(CGFloat)candle_width
 {
     //  蜡烛宽度（包括中间间隔像素）
-    CGFloat spaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat spaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     
     //  绘制蜡烛和上下影线（如果candle_width为0了则只描绘影线，不描绘蜡烛。）
     UIBezierPath* path;
@@ -151,7 +151,7 @@
             yOffset = floor(model.fOffsetOpen);
             fHeight = fmaxf(ceil(model.fOffsetClose - model.fOffsetOpen), 1);
         }
-        CGRect candleFrame = CGRectMake(index * spaceW, self.fMainMAHeight + yOffset, candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH, fHeight);
+        CGRect candleFrame = CGRectMake(index * spaceW, self.fMainMAHeight + yOffset, candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH, fHeight);
         path = [UIBezierPath bezierPathWithRect:candleFrame];
     }else{
         path = [[UIBezierPath alloc] init];
@@ -204,7 +204,7 @@
  */
 - (CAShapeLayer*)genVolumeLayer:(MKlineItemData*)model index:(NSInteger)index candle_width:(CGFloat)candle_width
 {
-    CGFloat spaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat spaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     
     //  成交量柱子底部Y坐标
     CGFloat fVolumeGraphBottomY = self.fSquareHeight;
@@ -215,7 +215,7 @@
     //  REMARK：从最底部倒着往上绘制，高度设置为负数。
     UIBezierPath* path;
     if (candle_width > 0){
-        CGRect candleFrame = CGRectMake(index * spaceW, fVolumeGraphBottomY, candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH, floor(-model.fOffset24Vol));
+        CGRect candleFrame = CGRectMake(index * spaceW, fVolumeGraphBottomY, candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH, floor(-model.fOffset24Vol));
         path = [UIBezierPath bezierPathWithRect:candleFrame];
     }else{
         path = [[UIBezierPath alloc] init];
@@ -258,18 +258,18 @@
     //  初始化一个路径
     UIBezierPath *framePath = [UIBezierPath bezierPathWithRect:frame];
     
-    CGFloat cellW = frameW / kBTS_KLINE_COL_NUM;
+    CGFloat cellW = frameW / kX4T_KLINE_COL_NUM;
     
-    //  绘制竖线（kBTS_KLINE_COL_NUM - 1）条
-    for (int i = 0; i < kBTS_KLINE_COL_NUM - 1; ++i) {
+    //  绘制竖线（kX4T_KLINE_COL_NUM - 1）条
+    for (int i = 0; i < kX4T_KLINE_COL_NUM - 1; ++i) {
         CGPoint startPoint = CGPointMake(frameX + cellW * (i + 1), frameY);
         CGPoint endPoint   = CGPointMake(frameX + cellW * (i + 1), frameY + frameH);
         [framePath moveToPoint:startPoint];
         [framePath addLineToPoint:endPoint];
     }
 
-    //  绘制横线（kBTS_KLINE_ROW_NUM - 1）条。由于区域顶部显示MA指标，所以横线需要往下偏移。
-    for (int i = 0; i < kBTS_KLINE_ROW_NUM - 1; ++i) {
+    //  绘制横线（kX4T_KLINE_ROW_NUM - 1）条。由于区域顶部显示MA指标，所以横线需要往下偏移。
+    for (int i = 0; i < kX4T_KLINE_ROW_NUM - 1; ++i) {
         CGPoint startPoint = CGPointMake(frameX, frameY + self.fOneCellHeight * (i + 1) + self.fMainMAHeight);
         CGPoint endPoint   = CGPointMake(frameX + frameW, frameY + self.fOneCellHeight * (i + 1) + self.fMainMAHeight);
         [framePath moveToPoint:startPoint];
@@ -279,7 +279,7 @@
     //  REMARK：显示MACD等高级指标区域多一条线。
     if (_kSubIndexType != eksit_show_none){
         CGFloat fSecondHeightAll = self.fSecondGraphHeight + self.fSecondMAHeight;
-        CGFloat fSubOffsetY = frameY + self.fOneCellHeight * (kBTS_KLINE_ROW_NUM - 1) + self.fMainMAHeight;
+        CGFloat fSubOffsetY = frameY + self.fOneCellHeight * (kX4T_KLINE_ROW_NUM - 1) + self.fMainMAHeight;
         CGPoint startPoint = CGPointMake(frameX, fSubOffsetY + fSecondHeightAll);
         CGPoint endPoint   = CGPointMake(frameX + frameW, fSubOffsetY + fSecondHeightAll);
         [framePath moveToPoint:startPoint];
@@ -299,11 +299,11 @@
 - (void)setMainSubAdvAreaArgs:(CGFloat)width
 {
     CGFloat fTotalHeight = width;
-    self.fOneCellHeight = fTotalHeight / kBTS_KLINE_ROW_NUM;
-    self.fMainGraphHeight = self.fOneCellHeight * (kBTS_KLINE_ROW_NUM - 1);
-    self.fMainMAHeight = self.fOneCellHeight * kBTS_KLINE_MA_HEIGHT;
+    self.fOneCellHeight = fTotalHeight / kX4T_KLINE_ROW_NUM;
+    self.fMainGraphHeight = self.fOneCellHeight * (kX4T_KLINE_ROW_NUM - 1);
+    self.fMainMAHeight = self.fOneCellHeight * kX4T_KLINE_MA_HEIGHT;
     CGFloat fSecondGraphTotal = self.fOneCellHeight - self.fMainMAHeight;
-    self.fSecondMAHeight = fSecondGraphTotal * kBTS_KLINE_MA_HEIGHT;
+    self.fSecondMAHeight = fSecondGraphTotal * kX4T_KLINE_MA_HEIGHT;
     self.fSecondGraphHeight = fSecondGraphTotal - self.fSecondMAHeight;
     self.fTimeAxisHeight = ceil(_f10NumberSize.height + 8);
     self.fSquareHeight = width;
@@ -311,7 +311,7 @@
     //  有高级指标显示的情况下重新计算高度
     if (_kSubIndexType != eksit_show_none){
         self.fMainGraphHeight -= fSecondGraphTotal;
-        self.fOneCellHeight = self.fMainGraphHeight / (kBTS_KLINE_ROW_NUM - 1);
+        self.fOneCellHeight = self.fMainGraphHeight / (kX4T_KLINE_ROW_NUM - 1);
     }
 }
 
@@ -343,7 +343,7 @@
         _kSubIndexType = eksit_show_none;
         
         //  初始化默认字体
-        _font = [UIFont fontWithName:@"Helvetica" size:kBTS_KLINE_PRICE_VOL_FONTSIZE];
+        _font = [UIFont fontWithName:@"Helvetica" size:kX4T_KLINE_PRICE_VOL_FONTSIZE];
         //  REMARK：测量X轴、Y轴、MAX、MIN价格、VOL等字体高度用。
         _f10NumberSize = [self auxSizeWithText:@"0.123456789-:" font:_font maxsize:CGSizeMake(width, 9999)];
         
@@ -353,7 +353,7 @@
         
         //  初始化model池
         _kdataModelPool = [NSMutableArray array];
-        for (int i = 0; i <= kBTS_KLINE_MAX_SHOW_CANDLE_NUM; ++i) {
+        for (int i = 0; i <= kX4T_KLINE_MAX_SHOW_CANDLE_NUM; ++i) {
             [_kdataModelPool addObject:[[MKlineItemData alloc] init]];
         }
         _kdataModelCurrentIndex = 0;
@@ -384,8 +384,8 @@
         _panOffsetX = 0;
         
         //  缩放手势
-        _currCandleTotalWidth = kBTS_KLINE_CANDLE_WIDTH + kBTS_KLINE_SHADOW_WIDTH;
-        _currCandleWidth = _currCandleTotalWidth - kBTS_KLINE_SHADOW_WIDTH;
+        _currCandleTotalWidth = kX4T_KLINE_CANDLE_WIDTH + kX4T_KLINE_SHADOW_WIDTH;
+        _currCandleWidth = _currCandleTotalWidth - kX4T_KLINE_SHADOW_WIDTH;
         _scaleGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(onScaleGestureTrigger:)];
         [self addGestureRecognizer:_scaleGesture];
         _scaleGesture.enabled = YES;
@@ -405,8 +405,8 @@
 - (NSInteger)calcMaxShowCandleNumber:(CGFloat)candle_width
 {
     CGFloat fMaxWidth = self.bounds.size.width;
-    CGFloat fWidthCandle = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH;
-    CGFloat fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL;
+    CGFloat fWidthCandle = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH;
+    CGFloat fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL;
     
     NSInteger num = (NSInteger)floor(fMaxWidth / fRealWidth);
     
@@ -850,8 +850,8 @@
     _currMaxVolume = max_24vol;
     id currDiffPrice = [max_price decimalNumberBySubtracting:min_price];
     double f_diff_price = [currDiffPrice doubleValue];
-    assert(kBTS_KLINE_ROW_NUM >= 2);
-    id n_rows = [NSDecimalNumber decimalNumberWithMantissa:kBTS_KLINE_ROW_NUM - 1 exponent:0 isNegative:NO];
+    assert(kX4T_KLINE_ROW_NUM >= 2);
+    id n_rows = [NSDecimalNumber decimalNumberWithMantissa:kX4T_KLINE_ROW_NUM - 1 exponent:0 isNegative:NO];
     _currRowPriceStep = [currDiffPrice decimalNumberByDividingBy:n_rows];
     
     NSLog(@"%@", [NSString stringWithFormat:@"max_price:%@ min_price:%@ diff_price:%@", max_price, min_price, currDiffPrice]);
@@ -924,7 +924,7 @@
 
 - (NSString*)formatDateString:(NSTimeInterval)date_ts
 {
-    //  REMARK：BTS默认时间是UTC时间，这里按照本地时区格式化。
+    //  REMARK：X4T默认时间是UTC时间，这里按照本地时区格式化。
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:date_ts];
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
     switch (self.ekdptType) {
@@ -959,7 +959,7 @@
     //  描绘MA指标
     [self drawAllMaValue:model];
     
-    CGFloat spaceW = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat spaceW = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     UIBezierPath* path = [UIBezierPath bezierPath];
     
     //  1、竖线
@@ -1249,7 +1249,7 @@
  */
 - (void)drawTimeLine:(CGFloat)candle_width
 {
-    CGFloat candleSpaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat candleSpaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     NSMutableArray* timeline_points = [NSMutableArray array];
     NSInteger idx = 0;
     for (MKlineItemData* m in _kdataArrayShowing) {
@@ -1383,7 +1383,7 @@
         }
     }
     
-    CGFloat candleSpaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat candleSpaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     
     ThemeManager* theme = [ThemeManager sharedThemeManager];
     
@@ -1561,7 +1561,7 @@
         return;
     }
     
-    CGFloat candleSpaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+    CGFloat candleSpaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
     //  保留小数位数 向上取整
     NSDecimalNumberHandler* ceilHandler = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundUp
                                                                                                  scale:_base_precision
@@ -1571,13 +1571,13 @@
                                                                                    raiseOnDivideByZero:NO];
     //  1、描绘背景右边(Y轴)价格区间
     id currStep = [_currMinPrice copy];
-    for (int i = 0; i < kBTS_KLINE_ROW_NUM; ++i) {
+    for (int i = 0; i < kX4T_KLINE_ROW_NUM; ++i) {
         CGFloat txtOffsetY;
         id price;
         if (i == 0){
             price = _currMinPrice;
             txtOffsetY = self.fMainGraphHeight + self.fMainMAHeight - _f10NumberSize.height;
-        }else if (i == kBTS_KLINE_ROW_NUM - 1){
+        }else if (i == kX4T_KLINE_ROW_NUM - 1){
             price = _currMaxPrice;
             txtOffsetY = 4;
         }else{
@@ -1597,7 +1597,7 @@
     }
     
     //  2、描绘底部x轴时间
-    for (int i = 0; i <= kBTS_KLINE_COL_NUM; ++i) {
+    for (int i = 0; i <= kX4T_KLINE_COL_NUM; ++i) {
         NSInteger dateCandleIndex;
         id align;
         CGFloat txtX;
@@ -1606,14 +1606,14 @@
             dateCandleIndex = 0;
             align = kCAAlignmentLeft;
             txtX = 2;
-        }else if (i == kBTS_KLINE_COL_NUM){
+        }else if (i == kX4T_KLINE_COL_NUM){
             dateCandleIndex = maxShowNum - 1;
             align = kCAAlignmentRight;
             txtX = self.bounds.size.width - 2 - txtWidth;
         }else{
-            dateCandleIndex = round((double)(i * maxShowNum) / kBTS_KLINE_COL_NUM);
+            dateCandleIndex = round((double)(i * maxShowNum) / kX4T_KLINE_COL_NUM);
             align = kCAAlignmentCenter;
-            txtX = i * self.bounds.size.width / kBTS_KLINE_COL_NUM - txtWidth / 2;
+            txtX = i * self.bounds.size.width / kX4T_KLINE_COL_NUM - txtWidth / 2;
         }
         //  有可能时间轴区域对上去没有蜡烛信息（比如刚开盘或者成交量低等交易对）。所以需要用 safe 接口获取数据。
         MKlineItemData* m = [_kdataArrayShowing safeObjectAtIndex:dateCandleIndex];
@@ -1759,13 +1759,13 @@
         
         if (candle_max_price_model.showIndex >= maxShowNum/2){
             //  最高价格在右边区域：靠左边显示
-            lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width - kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
-            lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width - kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
             txtOffsetX = lineStartX - 2 - str_size.width;
         }else{
             //  最高价格在右边区域：靠右边显示
             lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width;
-            lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
             txtOffsetX = lineEndX + 2;
         }
         
@@ -1804,13 +1804,13 @@
         
         if (candle_min_price_model.showIndex >= maxShowNum/2){
             //  最低价格在右边区域：靠左边显示
-            lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width - kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
-            lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width - kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
             txtOffsetX = lineStartX - 2 - str_size.width;
         }else{
             //  最低价格在右边区域：靠右边显示
             lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width;
-            lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
+            lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH;
             txtOffsetX = lineEndX + 2;
         }
         
@@ -1980,8 +1980,8 @@
         CGFloat x = fmin(fmax(point.x, 0), self.bounds.size.width);
         
         //  计算选中索引
-        CGFloat fWidthCandle = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH;
-        CGFloat fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL;
+        CGFloat fWidthCandle = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH;
+        CGFloat fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL;
         NSInteger index = fmin(fmax(round(x / fRealWidth), 0), [_kdataArrayShowing count] - 1);
         
         //  描绘
@@ -2003,11 +2003,11 @@
     }
     
     CGFloat scale = gesture.scale;
-    NSInteger total_width = (NSInteger)fmin(fmax(round(_currCandleTotalWidth * scale), kBTS_KLINE_CANDLE_WIDTH_MIN + kBTS_KLINE_SHADOW_WIDTH),
-                                            kBTS_KLINE_CANDLE_WIDTH_MAX + kBTS_KLINE_SHADOW_WIDTH);
+    NSInteger total_width = (NSInteger)fmin(fmax(round(_currCandleTotalWidth * scale), kX4T_KLINE_CANDLE_WIDTH_MIN + kX4T_KLINE_SHADOW_WIDTH),
+                                            kX4T_KLINE_CANDLE_WIDTH_MAX + kX4T_KLINE_SHADOW_WIDTH);
     if (total_width != _currCandleTotalWidth){
         _currCandleTotalWidth = total_width;
-        _currCandleWidth = _currCandleTotalWidth - kBTS_KLINE_SHADOW_WIDTH;
+        _currCandleWidth = _currCandleTotalWidth - kX4T_KLINE_SHADOW_WIDTH;
         NSLog(@"candle scale: total: %@, curr: %@", @(_currCandleTotalWidth), @(_currCandleWidth));
         
         //  TODO:fowallet 缩放后 _currCandleOffset？？如何设置。
@@ -2033,7 +2033,7 @@
     }else if (recoginzer.state == UIGestureRecognizerStateEnded){
         _panOffsetX += touchPoint.x - _startTouch.x;
         _panOffsetX = fmax(_panOffsetX, 0);
-        CGFloat spaceW = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+        CGFloat spaceW = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
         _panOffsetX = fmin(_panOffsetX, fmax([_kdataArrayAll count] * spaceW - self.bounds.size.width, 0));
         NSLog(@"PanOffsetX: %@", @(_panOffsetX));
         _isMoving = NO;
@@ -2042,7 +2042,7 @@
     }else if (recoginzer.state == UIGestureRecognizerStateCancelled){
         _panOffsetX += touchPoint.x - _startTouch.x;
         _panOffsetX = fmax(_panOffsetX, 0);
-        CGFloat spaceW = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL;
+        CGFloat spaceW = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL;
         _panOffsetX = fmin(_panOffsetX, fmax([_kdataArrayAll count] * spaceW - self.bounds.size.width, 0));
         NSLog(@"PanOffsetX: %@", @(_panOffsetX));
         _isMoving = NO;
@@ -2060,8 +2060,8 @@
     NSInteger offsetX = (NSInteger)x;
     NSLog(@"pan: %@", @(offsetX));
     
-    CGFloat fWidthCandle = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH;
-    CGFloat fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL;
+    CGFloat fWidthCandle = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH;
+    CGFloat fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL;
     
     NSInteger offset_candle = round(fmax(_panOffsetX+offsetX, 0) / fRealWidth);
     if (offset_candle != _currCandleOffset){

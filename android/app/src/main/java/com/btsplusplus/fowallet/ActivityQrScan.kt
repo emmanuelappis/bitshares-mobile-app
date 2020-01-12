@@ -272,7 +272,7 @@ class ActivityQrScan : BaseCaptureActivity() {
         val mask = ViewMask(resources.getString(R.string.kVcScanProcessingResult), this)
         mask.show()
 
-        //  1、判断是否是BTS私钥。
+        //  1、判断是否是X4T私钥。
         val btsAddress = OrgUtils.genBtsAddressFromWifPrivateKey(result)
         if (btsAddress != null) {
             _processScanResultAsPrivateKey(result, btsAddress, mask)

@@ -224,10 +224,10 @@ enum
     }
     
     //  更多 - 按钮
-    [buttonArray addObject:@{@"name":NSLocalizedString(@"kLabelEkdptBtnMore", @"更多◢"), @"value":@(kBTS_KLINE_MORE_BUTTON_VALUE), @"disable_selected":@YES}];
+    [buttonArray addObject:@{@"name":NSLocalizedString(@"kLabelEkdptBtnMore", @"更多◢"), @"value":@(kX4T_KLINE_MORE_BUTTON_VALUE), @"disable_selected":@YES}];
     
     //  指标 - 按钮
-    [buttonArray addObject:@{@"name":NSLocalizedString(@"kLabelEkdptBtnIndex", @"指标"), @"value":@(kBTS_KLINE_INDEX_BUTTON_VALUE), @"disable_selected":@YES}];
+    [buttonArray addObject:@{@"name":NSLocalizedString(@"kLabelEkdptBtnIndex", @"指标"), @"value":@(kX4T_KLINE_INDEX_BUTTON_VALUE), @"disable_selected":@YES}];
     
     return @{@"button_list":buttonArray, @"default_value":@([[kline_period_ary objectAtIndex:kline_period_default] integerValue])};
 }
@@ -365,11 +365,11 @@ enum
         NSInteger default_query_seconds = [self getDatePeriodSeconds:(EKlineDatePeriodType)kline_period_default_value];
         NSInteger now = [[NSDate date] timeIntervalSince1970];
         id snow = [OrgUtils formatBitsharesTimeString:now];
-        id sbgn = [OrgUtils formatBitsharesTimeString:now-default_query_seconds*kBTS_KLINE_MAX_SHOW_CANDLE_NUM];
+        id sbgn = [OrgUtils formatBitsharesTimeString:now-default_query_seconds*kX4T_KLINE_MAX_SHOW_CANDLE_NUM];
         //    id sbgn = [OrgUtils formatBitsharesTimeString:now-86400*200];
         
         id api_history = [[GrapheneConnectionManager sharedGrapheneConnectionManager] any_connection].api_history;
-        //  TODO:fowallet 这个方法一次最多返回200条数据，如果 kBTS_KLINE_MAX_SHOW_CANDLE_NUM 设置为300，那么返回的数据可能不包含近期100条。需要多次请求
+        //  TODO:fowallet 这个方法一次最多返回200条数据，如果 kX4T_KLINE_MAX_SHOW_CANDLE_NUM 设置为300，那么返回的数据可能不包含近期100条。需要多次请求
         WsPromise* initKdata = [api_history exec:@"get_market_history"
                                           params:@[_tradingPair.baseId, _tradingPair.quoteId, @(default_query_seconds), sbgn, snow]];
         
@@ -513,10 +513,10 @@ enum
     
     NSInteger now = [[NSDate date] timeIntervalSince1970];
     id snow = [OrgUtils formatBitsharesTimeString:now];
-    id sbgn = [OrgUtils formatBitsharesTimeString:now-seconds*kBTS_KLINE_MAX_SHOW_CANDLE_NUM];
+    id sbgn = [OrgUtils formatBitsharesTimeString:now-seconds*kX4T_KLINE_MAX_SHOW_CANDLE_NUM];
     //    id sbgn = [OrgUtils formatBitsharesTimeString:now-86400*200];
     id api_history = [[GrapheneConnectionManager sharedGrapheneConnectionManager] any_connection].api_history;
-    //  TODO:fowallet 这个方法一次最多返回200条数据，如果 kBTS_KLINE_MAX_SHOW_CANDLE_NUM 设置为300，那么返回的数据可能不包含近期100条。需要多次请求
+    //  TODO:fowallet 这个方法一次最多返回200条数据，如果 kX4T_KLINE_MAX_SHOW_CANDLE_NUM 设置为300，那么返回的数据可能不包含近期100条。需要多次请求
     WsPromise* initTest = [api_history exec:@"get_market_history" params:@[_tradingPair.baseId, _tradingPair.quoteId, @(seconds), sbgn, snow]];
     [[initTest then:(^id(id data) {
         [self hideBlockView];
@@ -639,15 +639,15 @@ enum
     NSLog(@"tag:%@", @(sender.tag));
     NSInteger tag = sender.tag;
     switch (tag) {
-        case kBTS_KLINE_INDEX_BUTTON_VALUE:
+        case kX4T_KLINE_INDEX_BUTTON_VALUE:
             [self _onIndexButtonClicked];
             break;
-        case kBTS_KLINE_MORE_BUTTON_VALUE:
+        case kX4T_KLINE_MORE_BUTTON_VALUE:
             [self _onMoreButtonClicked:sender];
             break;
         default:
         {
-            [_viewLineButtons updateButtonText:kBTS_KLINE_MORE_BUTTON_VALUE
+            [_viewLineButtons updateButtonText:kX4T_KLINE_MORE_BUTTON_VALUE
                                        newText:NSLocalizedString(@"kLabelEkdptBtnMore", @"更多◢")];
             EKlineDatePeriodType ekdpt = (EKlineDatePeriodType)tag;
             [self queryKdata:[self getDatePeriodSeconds:ekdpt] ekdptType:ekdpt];

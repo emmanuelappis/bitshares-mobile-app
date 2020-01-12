@@ -5,8 +5,8 @@ import java.math.BigDecimal
 //  【系统通知】网络重连成功后发送
 const val kBtsWebsocketReconnectSuccess = "kBtsWebsocketReconnectSuccess"
 
-//  BTS 对象本地缓存过期时间
-const val kBTSObjectCacheExpireTime = 86400
+//  X4T 对象本地缓存过期时间
+const val kX4TObjectCacheExpireTime = 86400
 
 //  5星好评地址 TODO
 const val kApp5StarURL = "https://play.google.com/store/apps/details?id=org.bitshares.app"
@@ -70,31 +70,31 @@ const val kNETWORK_CLASS_4_G = 4
  * K线相关参数
  */
 //  K线图中价格区间、日期区间、最低最高价格、成交量、MA信息等小主要文字字号
-val kBTS_KLINE_PRICE_VOL_FONTSIZE = 8.0f.dp
+val kX4T_KLINE_PRICE_VOL_FONTSIZE = 8.0f.dp
 
 //  K线背景边框行列数
-const val kBTS_KLINE_COL_NUM = 4
-const val kBTS_KLINE_ROW_NUM = 5
+const val kX4T_KLINE_COL_NUM = 4
+const val kX4T_KLINE_ROW_NUM = 5
 
 //  K线MA等指标区域高度（相对于ROW的比例，比如行高80，则MA高度20。）
-const val kBTS_KLINE_MA_HEIGHT = 0.25f
+const val kX4T_KLINE_MA_HEIGHT = 0.25f
 
 //  K线蜡烛图实体默认宽度、最小宽度、最大宽度（影响缩放）
-val kBTS_KLINE_CANDLE_WIDTH = 3.dp
-const val kBTS_KLINE_CANDLE_WIDTH_MIN = 0
-val kBTS_KLINE_CANDLE_WIDTH_MAX = 9.dp
+val kX4T_KLINE_CANDLE_WIDTH = 3.dp
+const val kX4T_KLINE_CANDLE_WIDTH_MIN = 0
+val kX4T_KLINE_CANDLE_WIDTH_MAX = 9.dp
 
 //  K线蜡烛图影线宽度
-val kBTS_KLINE_SHADOW_WIDTH = 1.dp
+val kX4T_KLINE_SHADOW_WIDTH = 1.dp
 
 //  K线蜡烛图之间的间隔宽度
-val kBTS_KLINE_INTERVAL = 2.dp
+val kX4T_KLINE_INTERVAL = 2.dp
 
 //  K线最多显示的蜡烛图数量（一直往回滑动）    TODO:fowallet bts一次最多返回200，更多记录需要多次请求。
-const val kBTS_KLINE_MAX_SHOW_CANDLE_NUM = 200
+const val kX4T_KLINE_MAX_SHOW_CANDLE_NUM = 200
 
 //  K线中指向最低价格、最高价格的短横线长度
-val kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH = 12.dp
+val kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH = 12.dp
 
 //  BigDecimal大数计算不指定精度时默认采用的精度。
 val kBigDecimalDefaultMaxPrecision = 16
@@ -103,7 +103,7 @@ val kBigDecimalDefaultMaxPrecision = 16
 val kBigDecimalDefaultRoundingMode = BigDecimal.ROUND_HALF_UP
 
 //  startActivity传递参数时的ID
-const val BTSPP_START_ACTIVITY_PARAM_ID = "btspp_start_activity_param_id"
+const val X4TPP_START_ACTIVITY_PARAM_ID = "btspp_start_activity_param_id"
 
 /**
  *  钱包中存在的私钥对指定权限状态枚举。

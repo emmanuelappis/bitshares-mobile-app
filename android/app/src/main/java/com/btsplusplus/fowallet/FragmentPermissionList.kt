@@ -495,10 +495,10 @@ class FragmentPermissionList : BtsppFragment() {
      */
     private fun _canBeModified(account: JSONObject, permission: Any): Boolean {
         val oid = account.getString("id")
-        if (oid == BTS_GRAPHENE_COMMITTEE_ACCOUNT ||
-                oid == BTS_GRAPHENE_WITNESS_ACCOUNT ||
-                oid == BTS_GRAPHENE_TEMP_ACCOUNT ||
-                oid == BTS_GRAPHENE_PROXY_TO_SELF) {
+        if (oid == X4T_GRAPHENE_COMMITTEE_ACCOUNT ||
+                oid == X4T_GRAPHENE_WITNESS_ACCOUNT ||
+                oid == X4T_GRAPHENE_TEMP_ACCOUNT ||
+                oid == X4T_GRAPHENE_PROXY_TO_SELF) {
             return false
         }
         return true

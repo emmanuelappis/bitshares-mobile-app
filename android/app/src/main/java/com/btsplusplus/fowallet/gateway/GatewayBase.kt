@@ -59,7 +59,7 @@ open class GatewayBase {
         //    supportsOutputMemos = 1;
         //    symbol = "OPEN.EOSDAC";
         //    transactionFee = 0;
-        //    walletName = "BitShares 2.0";
+        //    walletName = "X4trade 2.0";
         //    walletSymbol = "OPEN.EOSDAC";
         //    walletType = bitshares2;
         //    withdrawalLimit24h = "-1";
@@ -125,10 +125,10 @@ open class GatewayBase {
         //    precision = 100000000;
         //    restricted = 0;
         //    supportsOutputMemos = 0;
-        //    symbol = "GDEX.BTC";
+        //    symbol = "CRYPTONEX.BTC";
         //    transactionFee = 0;
         //    walletName = "bitshares2.0";
-        //    walletSymbol = "GDEX.BTC";
+        //    walletSymbol = "CRYPTONEX.BTC";
         //    walletType = "bitshares2.0";
         //}
 

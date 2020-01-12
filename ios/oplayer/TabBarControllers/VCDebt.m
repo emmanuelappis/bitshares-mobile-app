@@ -528,7 +528,7 @@ enum
             }
         }
         
-        //  3、获取抵押物（BTS）的余额信息（TODO:fowallet ！！！如果以后支持其他资产作为抵押物，则需要调整。）
+        //  3、获取抵押物（X4T）的余额信息（TODO:fowallet ！！！如果以后支持其他资产作为抵押物，则需要调整。）
         _collateralBalance = [balances_hash objectForKey:chainMgr.grapheneCoreAssetID];
         if (!_collateralBalance){
             _collateralBalance = @{@"asset_id":chainMgr.grapheneCoreAssetID, @"amount":@0};
@@ -1485,7 +1485,7 @@ enum
     
     //  TODO:fowallet 不足的时候否直接提示显示？？？
     if (![[_fee_item objectForKey:@"sufficient"] boolValue]){
-        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 BTS/CNY/USD 用于支付网络手续费。")];
+        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 X4T/CNY/USD 用于支付网络手续费。")];
         return;
     }
     

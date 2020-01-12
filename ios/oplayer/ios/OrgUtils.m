@@ -153,7 +153,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
                     break;
                 }
                 case AVAuthorizationStatusDenied: {
-                    reject(NSLocalizedString(@"kVcScanPermissionGotoSetting", @"请去前往【设置>隐私>相机>BTS++】打开访问开关。"));
+                    reject(NSLocalizedString(@"kVcScanPermissionGotoSetting", @"请去前往【设置>隐私>相机>X4T++】打开访问开关。"));
                     break;
                 }
                 case AVAuthorizationStatusRestricted: {
@@ -322,7 +322,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  是否是BTS终身会员判断
+ *  是否是X4T终身会员判断
  */
 + (BOOL)isBitsharesVIP:(NSString*)membership_expiration_date_string
 {
@@ -458,7 +458,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  解析 BTS 网络时间字符串，返回 1970 到现在的秒数。格式：2018-06-04T13:03:57。
+ *  解析 X4T 网络时间字符串，返回 1970 到现在的秒数。格式：2018-06-04T13:03:57。
  */
 + (NSTimeInterval)parseBitsharesTimeString:(NSString*)time
 {
@@ -477,7 +477,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  格式化时间戳为 BTS 网络时间字符串格式。格式：2018-06-04T13:03:57。
+ *  格式化时间戳为 X4T 网络时间字符串格式。格式：2018-06-04T13:03:57。
  */
 + (NSString*)formatBitsharesTimeString:(NSTimeInterval)time_secs
 {
@@ -493,7 +493,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  格式化：交易历史时间显示格式  24小时内，直接显示时分秒，24小时以外了则显示 x天前。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+ *  格式化：交易历史时间显示格式  24小时内，直接显示时分秒，24小时以外了则显示 x天前。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
  */
 + (NSString*)fmtTradeHistoryTimeShowString:(NSString*)time
 {
@@ -514,7 +514,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  格式化：限价单过期日期显示格式。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+ *  格式化：限价单过期日期显示格式。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
  */
 + (NSString*)fmtLimitOrderTimeShowString:(NSString*)time
 {
@@ -526,7 +526,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  格式化：帐号历史日期显示格式。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+ *  格式化：帐号历史日期显示格式。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
  */
 + (NSString*)fmtAccountHistoryTimeShowString:(NSString*)time
 {
@@ -1819,7 +1819,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  (public) 格式化ASSET_JSON对象为价格字符串，例：2323.32BTS
+ *  (public) 格式化ASSET_JSON对象为价格字符串，例：2323.32X4T
  */
 + (NSString*)formatAssetAmountItem:(id)asset_json
 {
@@ -1957,7 +1957,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
         }
     }
     
-    //  b.计算所有资产的总抵押量信息（目前抵押资产仅有BTS）和总债务信息（CNY、USD等）
+    //  b.计算所有资产的总抵押量信息（目前抵押资产仅有X4T）和总债务信息（CNY、USD等）
     NSMutableDictionary* call_orders_values = [NSMutableDictionary dictionary];
     NSMutableDictionary* debt_values = [NSMutableDictionary dictionary];
     NSArray* call_orders = [full_user_data objectForKey:@"call_orders"];
@@ -1991,7 +1991,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
         validBalancesHash[[asset objectForKey:@"asset_type"]] = asset;
     }
     
-    //  d.添加必须显示的资产（BTS、有挂单没余额、有抵押没余额、有债务没余额）
+    //  d.添加必须显示的资产（X4T、有挂单没余额、有抵押没余额、有债务没余额）
     id default_asset_id = [ChainObjectManager sharedChainObjectManager].grapheneCoreAssetID;
     id core_asset = [validBalancesHash objectForKey:default_asset_id];
     //  没余额，初始化默认值。
@@ -2107,7 +2107,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  根据私钥种子字符串生成 BTS 地址字符串。
+ *  根据私钥种子字符串生成 X4T 地址字符串。
  */
 + (NSString*)genBtsAddressFromPrivateKeySeed:(NSString*)seed
 {
@@ -2128,7 +2128,7 @@ NSString* gSmallDataDecode(NSString* str, NSString* key)
 }
 
 /**
- *  根据 WIF格式私钥 字符串生成 BTS 地址字符串。
+ *  根据 WIF格式私钥 字符串生成 X4T 地址字符串。
  */
 + (NSString*)genBtsAddressFromWifPrivateKey:(NSString*)wif_private_key
 {

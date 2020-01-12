@@ -256,7 +256,7 @@
     <string name="kLoginImportTipsPleaseInputPassword">パスワードを入力してください</string>
     <string name="kLoginImportTipsReadWalletFailed">ウオレットを読み取るファイルは失敗します。</string>
     <string name="kLoginImportTipsInvalidFileOrPassword">ウオレットのファイルが無効或いはパスワードは正しくありません。</string>
-    <string name="kLoginImportTipsNotBTSWallet">このウオレットはBitSharesのウオレットはない。</string>
+    <string name="kLoginImportTipsNotX4TWallet">このウオレットはCRYPTONEXのウオレットはない。</string>
     <string name="kLoginImportTipsWalletIsEmpty">このウオレットは何もありません，改めて選んでください。</string>
     <string name="kLoginImportTipsWalletHaveManyAccounts">このウオレットは多数のアカウントを含みます，ウオレット導入はできません。</string>
     <string name="kLoginImportTipsWalletNoPrivateKey">このウオレットはキーファイルはない，改めて選んでください。</string>
@@ -285,8 +285,8 @@
     <string name="kLoginCellWalletPassword">アカウントパスワード</string>
     <string name="kLoginCellActivePrivateKey">資金キーファイル </string>
     <string name="kLoginCellConfirmPassword">パスワードを確認してください</string>
-    <string name="kLoginRegTipsAccountMode">提示:アカウントパスワード対応フォーマット要求は疑問符をクリックして見ることができます。\n注意:BitSharesは、中心化ブロックチェーンへのアクセス暗証番号の応用が失われたり、忘れたりするとなかなか戻ってこないので、必ずきちんと保管してください。</string>
-    <string name="kLoginRegTipsWalletMode">ヒント:おウオレットパスワード対応フォーマット要件は闻き番号をクリックしてチェックすることができます。\n注意:BitSharesは中心化ブロックチェーンのアプリケーションで、ファイルやパスワードを失うと、忘れてしまうと戻ってきません。登录した后、ファイルをバックアップし、适切に保管することをお勧めします。※ ウオレットモードのご利用はお勧めです。</string>
+    <string name="kLoginRegTipsAccountMode">提示:アカウントパスワード対応フォーマット要求は疑問符をクリックして見ることができます。\n注意:CRYPTONEXは、中心化ブロックチェーンへのアクセス暗証番号の応用が失われたり、忘れたりするとなかなか戻ってこないので、必ずきちんと保管してください。</string>
+    <string name="kLoginRegTipsWalletMode">ヒント:おウオレットパスワード対応フォーマット要件は闻き番号をクリックしてチェックすることができます。\n注意:CRYPTONEXは中心化ブロックチェーンのアプリケーションで、ファイルやパスワードを失うと、忘れてしまうと戻ってきません。登录した后、ファイルをバックアップし、适切に保管することをお勧めします。※ ウオレットモードのご利用はお勧めです。</string>
     <string name="kLoginFaucetTipsInvalidArguments">パラメーターが無効です。</string>
     <string name="kLoginFaucetTipsInvalidAccountFmt">アカウントの書式が無効です。</string>
     <string name="kLoginFaucetTipsAccountAlreadyExist">アカウントはすでに存在しました。</string>
@@ -648,7 +648,7 @@
     <string name="kSettingCurrencyNameEUR">ユーロ</string>
     <string name="kSettingCurrencyNameJPY">円</string>
     <string name="kSettingCurrencyNameKRW">ウォン</string>
-    <string name="kSettingCurrencyNameBTS">BitSharesコア資産</string>
+    <string name="kSettingCurrencyNameX4T">CRYPTONEXコア資産</string>
     <!-- 各种VC标题栏名字 -->
     <string name="kVcTitleLogin">ログイン</string>
     <string name="kVcTitleImportAccount">アカウント導入</string>
@@ -870,9 +870,9 @@
     <string name="kLangKeyJa">日本語</string>
     <string name="skip">PASS</string>
     <string name="kNormalErrorInvalidArgs">無効なパラメーター。</string>
-    <string name="kAppName">BitShares</string>
+    <string name="kAppName">CRYPTONEX</string>
     <string name="kAccount">アカウント</string>
-    <string name="kAboutMainDesc">\nBitSharesモバイルサイドのウオレットは石墨のアルケン技術に基づくので、製品から出発を体験して、採用します原生の技術開発の1モデル匹敵する一流センター化取る引く所のDEX。\n\n私達に連絡します\nWeChat：bts-pp\nE-mail：contactsbtsplusplus.com\nTelegram：https://t.me/btsplusplus\n公式サイト：https://btspp.io\n</string>
+    <string name="kAboutMainDesc">\nCRYPTONEXモバイルサイドのウオレットは石墨のアルケン技術に基づくので、製品から出発を体験して、採用します原生の技術開発の1モデル匹敵する一流センター化取る引く所のDEX。\n\n私達に連絡します\nWeChat：bts-pp\nE-mail：contactsbtsplusplus.com\nTelegram：https://t.me/btsplusplus\n公式サイト：https://btspp.io\n</string>
     <string name="kAboutChannelAppStore">(商店版 &amp; 渠道 %s)</string>
     <string name="kAboutChannelWebsite">(官网版 &amp; 渠道 %s)</string>
     <string name="kAboutDebugVersion">(调试版)</string>
@@ -885,9 +885,9 @@
     <string name="kNormalCellBtnCreateWallet">ウオレットを創建</string>
     <string name="kTipsInitialize">初期化の中…</string>
     <string name="kTipsBeRequesting">願いの中…</string>
-    <string name="kTipsTxFeeNotEnough">手数料が足りない，アカウントに足額の BTS/CNY/USD を確保してください</string>
+    <string name="kTipsTxFeeNotEnough">手数料が足りない，アカウントに足額の X4T/CNY/USD を確保してください</string>
     <string name="kTipsTxRequestFailed">失敗を要請して、少しの後でまた試みてください。。</string>
-    <string name="kSearchPlaceholderAccount">有効な Bitshares アカウントを入力してください</string>
+    <string name="kSearchPlaceholderAccount">有効な Cryptonex アカウントを入力してください</string>
     <string name="kSearchPlaceholderAsset">クリックして新しい資産を検索します</string>
     <string name="kSearchTipsMyFavAccount">私の関心(%s人)</string>
     <string name="kSearchTipsMyCustomPairs">私の取引隊(%s个)</string>

@@ -172,7 +172,7 @@ enum
 }
 
 /**
- *  (private) 私钥模式导入 BTS 帐号。
+ *  (private) 私钥模式导入 X4T 帐号。
  */
 - (void)loginBitshares_AccountMode
 {

@@ -466,7 +466,7 @@ fun android.app.Activity.goTo(cls: Class<*>, transition_animation: Boolean = fal
 
     //  设置参数
     if (args != null) {
-        intent.putExtra(BTSPP_START_ACTIVITY_PARAM_ID, ParametersManager.sharedParametersManager().genParams(args))
+        intent.putExtra(X4TPP_START_ACTIVITY_PARAM_ID, ParametersManager.sharedParametersManager().genParams(args))
     }
 
     //  是否获取结果

@@ -247,7 +247,7 @@ enum
 - (NSString*)_randomSecurePreimage
 {
     //  TODO:fowallet 最大原像不能超过 o.preimage_size <= htlc_options->max_preimage_size
-    return [[NSString stringWithFormat:@"BTSPP%@PREIMAGE", [WalletManager randomPrivateKeyWIF]] uppercaseString];
+    return [[NSString stringWithFormat:@"X4TPP%@PREIMAGE", [WalletManager randomPrivateKeyWIF]] uppercaseString];
 }
 
 /**
@@ -292,7 +292,7 @@ enum
         return [[balance_item objectForKey:@"amount"] unsignedLongLongValue] != 0;
     })];
     
-    //  如果资产列表为空，则添加默认值。{BTS:0}
+    //  如果资产列表为空，则添加默认值。{X4T:0}
     if ([none_zero_balances count] <= 0){
         id balance_object = @{@"asset_id":chainMgr.grapheneCoreAssetID, @"amount":@0};
         none_zero_balances = @[balance_object];
@@ -315,9 +315,9 @@ enum
     id account_info = [_full_account_data objectForKey:@"account"];
     [_transfer_args setObject:@{@"id":account_info[@"id"], @"name":account_info[@"name"]} forKey:@"from"];
     if (!_default_asset){
-        //  TODO:fowallet 默认值，优先选择CNY、没CNY选择BTS。TODO：USD呢？？
+        //  TODO:fowallet 默认值，优先选择CNY、没CNY选择X4T。TODO：USD呢？？
         _default_asset = [_asset_list ruby_find:(^BOOL(id src) {
-            return [[src objectForKey:@"id"] isEqualToString:@"1.3.113"];
+            return [[src objectForKey:@"id"] isEqualToString:@"1.3.10"];
         })];
         if (!_default_asset){
             _default_asset = [_asset_list ruby_find:(^BOOL(id src) {
@@ -583,7 +583,7 @@ enum
     //  === 转账基本参数有效性检测 ===
     //  TODO:fowallet 不足的时候否直接提示显示？？？
     if (![[_fee_item objectForKey:@"sufficient"] boolValue]){
-        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 BTS/CNY/USD 用于支付网络手续费。")];
+        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 X4T/CNY/USD 用于支付网络手续费。")];
         return;
     }
     

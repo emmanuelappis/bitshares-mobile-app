@@ -36,7 +36,7 @@ enum
     
     kVcSubAdvanced,         //  更多高级功能(HTLC等）
     
-    kVcSubBtsExplorer,      //  BTS区块浏览器
+    kVcSubBtsExplorer,      //  X4T区块浏览器
 };
 
 @interface VCServices ()
@@ -112,7 +112,7 @@ enum
         }
         
         NSArray* pSection6 = @[
-                               @[@(kVcSubBtsExplorer),      @"kServicesCellLabelBtsExplorer"]       //  BTS区块浏览器
+                               @[@(kVcSubBtsExplorer),      @"kServicesCellLabelBtsExplorer"]       //  X4T区块浏览器
                                ];
         if ([pSection6 count] > 0) {
             [ary addObject:pSection6];
@@ -338,7 +338,7 @@ enum
                 break;
             }
                 
-            case kVcSubBtsExplorer:     //  BTS区块浏览器（bts.ai）
+            case kVcSubBtsExplorer:     //  X4T区块浏览器（bts.ai）
                 [OrgUtils safariOpenURL:[NSString stringWithFormat:@"https://bts.ai?lang=%@", NSLocalizedString(@"btsaiLangKey", @"langkey")]];
                 break;
             default:

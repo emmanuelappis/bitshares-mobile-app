@@ -42,8 +42,8 @@
     id old_voting_account = [old_options_json objectForKey:@"voting_account"];
     id new_voting_account = [new_options_json objectForKey:@"voting_account"];
     assert(old_voting_account && new_voting_account);
-    BOOL old_is_self = [old_voting_account isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF];
-    BOOL new_is_self = [new_voting_account isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF];
+    BOOL old_is_self = [old_voting_account isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF];
+    BOOL new_is_self = [new_voting_account isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF];
     
     if (old_is_self && new_is_self){
         //  1、更新前后都无代理：更新投票信息对比投票差异

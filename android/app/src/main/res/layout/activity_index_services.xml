@@ -326,7 +326,7 @@
 
                 </LinearLayout>
                 
-                <!-- BTS区块浏览器 -->
+                <!-- X4T区块浏览器 -->
                 <LinearLayout
                     android:id="@+id/layout_bts_explorer"
                     android:layout_width="match_parent"

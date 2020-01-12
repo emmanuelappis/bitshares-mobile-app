@@ -140,7 +140,7 @@
     }
     
     NSInteger value = sender.tag;
-    BOOL disable_selected = value == kBTS_KLINE_INDEX_BUTTON_VALUE || value == kBTS_KLINE_MORE_BUTTON_VALUE;
+    BOOL disable_selected = value == kX4T_KLINE_INDEX_BUTTON_VALUE || value == kX4T_KLINE_MORE_BUTTON_VALUE;
     if (!disable_selected){
         for (UIButton* btn in _buttonArray) {
             btn.selected = NO;

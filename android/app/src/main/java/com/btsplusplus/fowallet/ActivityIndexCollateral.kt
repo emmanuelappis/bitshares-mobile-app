@@ -56,7 +56,7 @@ class ActivityIndexCollateral : BtsppActivity() {
         val debt_asset_list = chainMgr.getDebtAssetList()
         assert(debt_asset_list.length() > 0)
         val currDebtAsset = chainMgr.getAssetBySymbol(debt_asset_list.getString(0))
-        val collateralAsset = chainMgr.getChainObjectByID(BTS_NETWORK_CORE_ASSET_ID)
+        val collateralAsset = chainMgr.getChainObjectByID(X4T_NETWORK_CORE_ASSET_ID)
         _debtPair = TradingPair().initWithBaseAsset(currDebtAsset, collateralAsset)
 
         // 设置全屏(隐藏状态栏和虚拟导航栏)
@@ -815,10 +815,10 @@ class ActivityIndexCollateral : BtsppActivity() {
             }
 
 
-            //  3、获取抵押物（BTS）的余额信息
-            _collateralBalance = balances_hash.optJSONObject(BTS_NETWORK_CORE_ASSET_ID)
+            //  3、获取抵押物（X4T）的余额信息
+            _collateralBalance = balances_hash.optJSONObject(X4T_NETWORK_CORE_ASSET_ID)
             if (_collateralBalance == null) {
-                _collateralBalance = jsonObjectfromKVS("asset_id", BTS_NETWORK_CORE_ASSET_ID, "amount", 0)
+                _collateralBalance = jsonObjectfromKVS("asset_id", X4T_NETWORK_CORE_ASSET_ID, "amount", 0)
             }
 
             //  4、获取当前持有的债仓

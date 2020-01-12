@@ -164,7 +164,7 @@ static AppCacheManager* _spInstanceAppCacheMgr = nil;
     if (!object_id){
         return self;
     }
-    id item = @{@"expire_ts":@([[NSDate date] timeIntervalSince1970] + kBTSObjectCacheExpireTime), @"cache_object":object};
+    id item = @{@"expire_ts":@([[NSDate date] timeIntervalSince1970] + kX4TObjectCacheExpireTime), @"cache_object":object};
     //  REMARK：格式   object_id => {:expire_ts, :cache_object}
     [_objectinfo_caches setObject:item forKey:object_id];
     return self;

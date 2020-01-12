@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:text="BTS++ v1.0"
+            android:text="X4T++ v1.0"
             android:textSize="13dp"
             android:textColor="@color/theme01.textColorGray" />
 
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16dp"
-            android:text="BTS++ v1.0.0.0"
+            android:text="X4T++ v1.0.0.0"
             android:textColor="@color/theme01.textColorMain" />
 
         <TextView

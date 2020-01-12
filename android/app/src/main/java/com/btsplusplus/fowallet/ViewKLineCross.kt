@@ -70,7 +70,7 @@ class ViewKLineCross : ViewBase {
         //  描绘MA指标
         val currCandleWidth = _kline!!._currCandleWidth
 
-        val spaceW: Float = (currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL).toFloat()
+        val spaceW: Float = (currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL).toFloat()
         val path = Path()
 
         //  1、竖线
@@ -271,7 +271,7 @@ class ViewKLineCross : ViewBase {
         val str_size: Size = auxSizeWithText(str, _fontname, _fontsize)
         val paint = getTextPaintWithString(str, color, _fontname, _fontsize)
         paint.textAlign = Paint.Align.LEFT
-        val frame = RectF(offset_x, offset_y + kBTS_KLINE_PRICE_VOL_FONTSIZE, str_size.width.toFloat(), str_size.height.toFloat())
+        val frame = RectF(offset_x, offset_y + kX4T_KLINE_PRICE_VOL_FONTSIZE, str_size.width.toFloat(), str_size.height.toFloat())
         canvas.drawText(str, frame.left, frame.top, paint)
         return str_size.width.toFloat()
     }
@@ -379,7 +379,7 @@ class ViewKLineCross : ViewBase {
 
         //  初始化默认字体
         _fontname = Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL)
-        _fontsize = kBTS_KLINE_PRICE_VOL_FONTSIZE.toFloat()
+        _fontsize = kX4T_KLINE_PRICE_VOL_FONTSIZE.toFloat()
 
         _ctx = context
     }

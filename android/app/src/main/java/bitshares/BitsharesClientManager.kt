@@ -183,13 +183,13 @@ class BitsharesClientManager {
             val expiration_ts = now_sec + proposal_lifetime_sec
 
             val op = jsonObjectfromKVS(
-                    "fee", jsonObjectfromKVS("amount", 0, "asset_id", BTS_NETWORK_CORE_ASSET_ID),
+                    "fee", jsonObjectfromKVS("amount", 0, "asset_id", X4T_NETWORK_CORE_ASSET_ID),
                     "fee_paying_account", fee_paying_account_id,
                     "expiration_time", expiration_ts,
                     "proposed_ops", jsonArrayfrom(jsonObjectfromKVS("op", jsonArrayfrom(opcode.value, opdata_with_fee)))
             )
 
-            assert(opaccount.getString("id") != BTS_GRAPHENE_COMMITTEE_ACCOUNT || kReviewPeriod > 0)
+            assert(opaccount.getString("id") != X4T_GRAPHENE_COMMITTEE_ACCOUNT || kReviewPeriod > 0)
 
             //  添加审核期
             if (kReviewPeriod > 0) {

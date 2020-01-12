@@ -59,10 +59,10 @@ class ChainObjectManager {
 
         //  初始化各种属性默认值
         isTestNetwork = false
-        grapheneChainID = BTS_NETWORK_CHAIN_ID
-        grapheneCoreAssetID = BTS_NETWORK_CORE_ASSET_ID
-        grapheneAssetSymbol = BTS_NETWORK_CORE_ASSET
-        grapheneAddressPrefix = BTS_ADDRESS_PREFIX
+        grapheneChainID = X4T_NETWORK_CHAIN_ID
+        grapheneCoreAssetID = X4T_NETWORK_CORE_ASSET_ID
+        grapheneAssetSymbol = X4T_NETWORK_CORE_ASSET
+        grapheneAddressPrefix = X4T_ADDRESS_PREFIX
 
         _cacheAssetSymbol2ObjectHash = mutableMapOf()
         _cacheObjectID2ObjectHash = mutableMapOf()
@@ -361,7 +361,7 @@ class ChainObjectManager {
     fun genAssetBasePriorityHash(): JSONObject {
         val asset_base_priority = JSONObject()
         var max_priority = 1000
-        //  REMARK：优先级 从 CNY 到 BTS 逐渐降低，其他非市场 base 的资产优先级默认为 0。
+        //  REMARK：优先级 从 CNY 到 X4T 逐渐降低，其他非市场 base 的资产优先级默认为 0。
         val default_markets = getDefaultMarketInfos()
         for (i in 0 until default_markets.length()) {
             val market = default_markets.getJSONObject(i)
@@ -406,12 +406,12 @@ class ChainObjectManager {
      *  (public) 获取 or 更新全局属性信息（包括活跃理事会、活跃见证人、手续费等信息）REMARK：该对象ID固定为 2.0.0。
      */
     fun getObjectGlobalProperties(): JSONObject {
-        return _cacheObjectID2ObjectHash[BTS_GLOBAL_PROPERTIES_ID]!!
+        return _cacheObjectID2ObjectHash[X4T_GLOBAL_PROPERTIES_ID]!!
     }
 
     fun updateObjectGlobalProperties(gp: JSONObject?) {
         if (gp != null) {
-            _cacheObjectID2ObjectHash[BTS_GLOBAL_PROPERTIES_ID] = gp
+            _cacheObjectID2ObjectHash[X4T_GLOBAL_PROPERTIES_ID] = gp
         }
     }
 
@@ -617,7 +617,7 @@ class ChainObjectManager {
         var bts_fee = fee_amount.toLong()
         //  手续费缩放系数
         bts_fee = Math.ceil(bts_fee * scale / 10000.0).toLong()
-        val bts_asset = getChainObjectByID(BTS_NETWORK_CORE_ASSET_ID)
+        val bts_asset = getChainObjectByID(X4T_NETWORK_CORE_ASSET_ID)
         val bts_precision = bts_asset.getInt("precision")
         val bts_fee_real = OrgUtils.calcAssetRealPrice(bts_fee, bts_precision)
         //  转换资产列表为 资产Hash。格式：asset_id=>amount
@@ -634,8 +634,8 @@ class ChainObjectManager {
             //  该 fee 当前余额
             val fee_balance_amount = balance_hash.optString(fee_asset_id, "0").toLong()
 
-            //  该 fee 是 BTS 还是其他资产分别处理
-            if (fee_asset_id == BTS_NETWORK_CORE_ASSET_ID) {
+            //  该 fee 是 X4T 还是其他资产分别处理
+            if (fee_asset_id == X4T_NETWORK_CORE_ASSET_ID) {
                 if (fee_balance_amount >= bts_fee) {
                     val result = JSONObject()
                     result.put("fee_asset_id", fee_asset_id)
@@ -657,7 +657,7 @@ class ChainObjectManager {
                     continue
                 }
 
-                //  其他资产和 BTS 资产进行兑换
+                //  其他资产和 X4T 资产进行兑换
                 val core_exchange_rate = fee_asset.optJSONObject("options")?.optJSONObject("core_exchange_rate")
                 //  没有 core_exchange_rate 信息，则不能作为手续费。
                 if (core_exchange_rate == null) {
@@ -669,7 +669,7 @@ class ChainObjectManager {
 
                 var fee_amount: Any? = null
                 var bts_amount: Any? = null
-                if (core_base.getString("asset_id") == BTS_NETWORK_CORE_ASSET_ID) {
+                if (core_base.getString("asset_id") == X4T_NETWORK_CORE_ASSET_ID) {
                     //  rate = quote / base(bts)
                     fee_amount = core_quote.get("amount")
                     bts_amount = core_base.get("amount")
@@ -688,13 +688,13 @@ class ChainObjectManager {
                 val fee_precision_pow = Math.pow(10.0, fee_precision.toDouble())
                 val fee_real: Double = fee_amount_integer / fee_precision_pow
 
-                //  REMARK：用于 CNY、USD 等兑换 BTS 的比例一直都在更新中，避免在用户操作过程中，兑换比例变化导致手续费不足。这里添加一个系数。
+                //  REMARK：用于 CNY、USD 等兑换 X4T 的比例一直都在更新中，避免在用户操作过程中，兑换比例变化导致手续费不足。这里添加一个系数。
                 val final_fee_real = 1.2 * fee_real / bts_real * bts_fee_real
 
                 //  向上取整
                 val final_fee_amount = Math.ceil(final_fee_real * fee_precision_pow).toLong()
 
-                //  REMARK：这里再把 其他资产的手续费(比如CNY)兑换回 BTS 值，然后判断 CNY 资产的手续费池是否足够。重要！！！
+                //  REMARK：这里再把 其他资产的手续费(比如CNY)兑换回 X4T 值，然后判断 CNY 资产的手续费池是否足够。重要！！！
                 val pool_min_value = Math.ceil(bts_real / fee_real * (final_fee_amount / fee_precision_pow) * scale)
 
                 //  手续费池余额不足
@@ -715,9 +715,9 @@ class ChainObjectManager {
             }
         }
 
-        //  默认选择BTS支付、但手续费不足。
+        //  默认选择X4T支付、但手续费不足。
         val result = JSONObject()
-        result.put("fee_asset_id", BTS_NETWORK_CORE_ASSET_ID)
+        result.put("fee_asset_id", X4T_NETWORK_CORE_ASSET_ID)
         result.put("amount", fee_amount)
         result.put("amount_real", bts_fee_real)
         result.put("sufficient", false)
@@ -732,9 +732,9 @@ class ChainObjectManager {
         val conn = GrapheneConnectionManager.sharedGrapheneConnectionManager().any_connection()
         return conn.async_exec_db("get_chain_properties").then { chain_properties: Any? ->
             val json = chain_properties as JSONObject
-            //  石墨烯网络区块链ID和BTS主网链ID不同，则为测试网络，不判断核心资产名字。因为测试网络资产名字也可能为BTS。
+            //  石墨烯网络区块链ID和X4T主网链ID不同，则为测试网络，不判断核心资产名字。因为测试网络资产名字也可能为X4T。
             val chain_id = json.optString("chain_id")
-            isTestNetwork = chain_id == null || chain_id.toString() != BTS_NETWORK_CHAIN_ID
+            isTestNetwork = chain_id == null || chain_id.toString() != X4T_NETWORK_CHAIN_ID
             grapheneChainID = chain_id.toString()
             if (isTestNetwork) {
                 //  测试网络：继续初始化核心资产信息
@@ -860,8 +860,8 @@ class ChainObjectManager {
             val fee_symbol = fee_asset_symbol_list[i].toString()
             val fee_asset = getAssetBySymbol(fee_symbol)
             val fee_asset_id = fee_asset.getString("id")
-            //  BTS 资产作为支付手续费的核心资产，则不用查询，足够即可。
-            if (fee_asset_id.equals(BTS_NETWORK_CORE_ASSET_ID)) {
+            //  X4T 资产作为支付手续费的核心资产，则不用查询，足够即可。
+            if (fee_asset_id.equals(X4T_NETWORK_CORE_ASSET_ID)) {
                 continue
             }
             //  添加到查询列表
@@ -872,7 +872,7 @@ class ChainObjectManager {
         return queryAllObjectsInfo(asset_id_array, _cacheAssetSymbol2ObjectHash, "symbol", true, null).then {
             val asset_hash = it as JSONObject
             Logger.d("[Track] queryFeeAssetListDynamicInfo step01 finish.")
-            //  仅有 BTS 可支付手续费，那么这里应该为空了。
+            //  仅有 X4T 可支付手续费，那么这里应该为空了。
             if (asset_hash.length() <= 0) {
                 return@then null
             }
@@ -1362,7 +1362,7 @@ class ChainObjectManager {
                 val base = sell_price.getJSONObject("base")
                 val quote = sell_price.getJSONObject("quote")
 
-                //  REMARK：卖单的base和市场的base相同，则为买单。比如，BTS-CNY市场，卖出CNY即买入BTS。
+                //  REMARK：卖单的base和市场的base相同，则为买单。比如，X4T-CNY市场，卖出CNY即买入X4T。
                 if (base.getString("asset_id").equals(base_id)) {
                     //  bid order: 单价price = 总价格base / 总数量quote
                     val value_base: Double = base.getLong("amount") / tradingPair._basePrecisionPow
@@ -1371,7 +1371,7 @@ class ChainObjectManager {
 
                     //  for_sale是卖出BASE，为总花费。比如 所有花费的CNY。
                     val base_amount: Double = limitOrder.getLong("for_sale") / tradingPair._basePrecisionPow
-                    //  总花费 / 单价，即买单的总数量。比如 BTS。
+                    //  总花费 / 单价，即买单的总数量。比如 X4T。
                     val quote_amount: Double = base_amount / price  //  TODO:fowallet价格精度问题。
 
                     //  累积
@@ -1382,12 +1382,12 @@ class ChainObjectManager {
 
                     //  ask order
 
-                    //  REMARK：卖单的base和市场quote相同，则为实际的卖单，比如，BTS-CNY市场，卖出BTS。
+                    //  REMARK：卖单的base和市场quote相同，则为实际的卖单，比如，X4T-CNY市场，卖出X4T。
                     val sell_value: Double = base.getLong("amount") / tradingPair._quotePrecisionPow
                     val buy_value: Double = quote.getLong("amount") / tradingPair._basePrecisionPow
                     val price = buy_value / sell_value
 
-                    //  for_sale是卖出QUOTE，即卖出BTS的数量。
+                    //  for_sale是卖出QUOTE，即卖出X4T的数量。
                     val quote_amount: Double = limitOrder.getLong("for_sale") / tradingPair._quotePrecisionPow
 
                     //  总花费 = 单价 * 数量。

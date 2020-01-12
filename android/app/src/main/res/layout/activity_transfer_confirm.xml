@@ -186,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="0.1094BTS"
+                android:text="0.1094X4T"
                 android:textColor="@color/theme01.textColorMain"
                 android:textSize="14dp" />
         </LinearLayout>

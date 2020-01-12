@@ -52,7 +52,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:text="BTS/USD"
+                android:text="X4T/USD"
                 style="@style/kNavigationBarTextStyle" />
 
         </FrameLayout>

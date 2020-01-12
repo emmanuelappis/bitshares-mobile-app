@@ -1,6 +1,6 @@
 //
 //  BinSerializer.h
-//  BTS交易签名之前的2进制流序列化
+//  X4T交易签名之前的2进制流序列化
 //
 //  Created by SYALON on 13-9-3.
 //
@@ -29,7 +29,7 @@
  */
 - (BinSerializer*)write_object_id:(NSString*)x_x_x;
 /**
- *  写入公钥对象。REMARK：BTS开头的地址。
+ *  写入公钥对象。REMARK：X4T开头的地址。
  */
 - (BinSerializer*)write_public_key:(NSString*)public_key_address;
 /**

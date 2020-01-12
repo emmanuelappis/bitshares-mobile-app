@@ -137,7 +137,7 @@ class FragmentMarginRanking : BtsppFragment() {
         ly1.addView(tv4)
 
 
-        // layout2 左: 抵押(BTS) 81,279.4799 右: 借入(CNY)213,583.9999
+        // layout2 左: 抵押(X4T) 81,279.4799 右: 借入(CNY)213,583.9999
         val ly2: LinearLayout = LinearLayout(ctx)
         ly2.orientation = LinearLayout.HORIZONTAL
         ly2.layoutParams = layout_params

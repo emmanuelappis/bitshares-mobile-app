@@ -42,7 +42,7 @@ class ActivityCreateProposal : BtsppActivity() {
         _opdata = proposal_args.getJSONObject("opdata")
         _opaccount = proposal_args.getJSONObject("opaccount")
         _result_promise = proposal_args.get("result_promise") as Promise
-        _bForceAddReviewTime = _opaccount.getString("id") == BTS_GRAPHENE_COMMITTEE_ACCOUNT
+        _bForceAddReviewTime = _opaccount.getString("id") == X4T_GRAPHENE_COMMITTEE_ACCOUNT
 
         //  默认第一个 / default value
         _permissionAccountArray = WalletManager.sharedWalletManager().getFeePayingAccountList(true)

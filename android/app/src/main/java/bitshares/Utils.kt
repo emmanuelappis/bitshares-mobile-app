@@ -260,7 +260,7 @@ class Utils {
         }
 
         /**
-         * 格式化时间戳为 BTS 网络时间字符串格式。格式：2018-06-04T13:03:57。
+         * 格式化时间戳为 X4T 网络时间字符串格式。格式：2018-06-04T13:03:57。
          */
         fun formatBitsharesTimeString(ts: Long): String {
             val d = Date(ts * 1000)
@@ -271,7 +271,7 @@ class Utils {
         }
 
         /**
-         *  是否是BTS终身会员判断
+         *  是否是X4T终身会员判断
          */
         fun isBitsharesVIP(membership_expiration_date_string: String?): Boolean {
             return if (membership_expiration_date_string != null && membership_expiration_date_string != "") {
@@ -354,7 +354,7 @@ class Utils {
         }
 
         /**
-         * 解析 BTS 网络时间字符串，返回 1970 到现在的秒数。格式：2018-06-04T13:03:57。
+         * 解析 X4T 网络时间字符串，返回 1970 到现在的秒数。格式：2018-06-04T13:03:57。
          */
         fun parseBitsharesTimeString(time: String): Long {
             val f = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
@@ -364,7 +364,7 @@ class Utils {
         }
 
         /**
-         * 格式化：帐号历史日期显示格式。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+         * 格式化：帐号历史日期显示格式。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
          */
         fun fmtAccountHistoryTimeShowString(time: String): String {
             if (time == "") {
@@ -378,7 +378,7 @@ class Utils {
         }
 
         /**
-         *  格式化：交易历史时间显示格式  24小时内，直接显示时分秒，24小时以外了则显示 x天前。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+         *  格式化：交易历史时间显示格式  24小时内，直接显示时分秒，24小时以外了则显示 x天前。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
          */
         fun fmtTradeHistoryTimeShowString(ctx: Context, time: String): String {
             val ts = parseBitsharesTimeString(time)
@@ -394,7 +394,7 @@ class Utils {
         }
 
         /**
-         * 格式化：限价单过期日期显示格式。REMARK：以当前时区格式化，BTS默认时间是UTC。北京时间当前时区会+8。
+         * 格式化：限价单过期日期显示格式。REMARK：以当前时区格式化，X4T默认时间是UTC。北京时间当前时区会+8。
          */
         fun fmtLimitOrderTimeShowString(time: String): String {
             val ts = parseBitsharesTimeString(time)

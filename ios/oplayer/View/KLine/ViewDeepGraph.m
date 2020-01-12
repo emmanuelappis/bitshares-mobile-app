@@ -258,8 +258,8 @@
     }
     
     //  描绘Y轴（数量区间）
-    double diff_sum = (max_sum - min_sum) / (kBTS_KLINE_DEEP_GRAPH_ROW_N - 1);
-    for (int i = 1; i < kBTS_KLINE_DEEP_GRAPH_ROW_N; ++i) {
+    double diff_sum = (max_sum - min_sum) / (kX4T_KLINE_DEEP_GRAPH_ROW_N - 1);
+    for (int i = 1; i < kX4T_KLINE_DEEP_GRAPH_ROW_N; ++i) {
         double value = min_sum + diff_sum * i;
         CGFloat offsetY = self.fMainGraphOffset + self.fMainGraphHeight - self.fMainGraphRowH * i;
         
@@ -319,15 +319,15 @@
         _tradingPair = tradingPair;
         
         CGFloat height = ceil(width / 2.0f);
-        self.fMainGraphRowH = height / kBTS_KLINE_DEEP_GRAPH_ROW_N;
-        self.fMainGraphHeight = (kBTS_KLINE_DEEP_GRAPH_ROW_N - 1) * self.fMainGraphRowH;
+        self.fMainGraphRowH = height / kX4T_KLINE_DEEP_GRAPH_ROW_N;
+        self.fMainGraphHeight = (kX4T_KLINE_DEEP_GRAPH_ROW_N - 1) * self.fMainGraphRowH;
         self.fMainGraphOffset = height - self.fMainGraphHeight;
-        self.fCellTotalHeight = height + kBTS_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT;
+        self.fCellTotalHeight = height + kX4T_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT;
         
         _allLayers = [NSMutableArray array];
         
         //  初始化默认字体
-        _font = [UIFont fontWithName:@"Helvetica" size:kBTS_KLINE_PRICE_VOL_FONTSIZE];
+        _font = [UIFont fontWithName:@"Helvetica" size:kX4T_KLINE_PRICE_VOL_FONTSIZE];
         //  REMARK：测量X轴、Y轴、MAX、MIN价格、VOL等字体高度用。
         _f10NumberSize = [self auxSizeWithText:@"0.123456789-:" font:_font maxsize:CGSizeMake(width, 9999)];
 
@@ -345,8 +345,8 @@
 //        _panOffsetX = 0;
 //
 //        //  缩放手势
-//        _currCandleTotalWidth = kBTS_KLINE_CANDLE_WIDTH + kBTS_KLINE_SHADOW_WIDTH;
-//        _currCandleWidth = _currCandleTotalWidth - kBTS_KLINE_SHADOW_WIDTH;
+//        _currCandleTotalWidth = kX4T_KLINE_CANDLE_WIDTH + kX4T_KLINE_SHADOW_WIDTH;
+//        _currCandleWidth = _currCandleTotalWidth - kX4T_KLINE_SHADOW_WIDTH;
 //        _scaleGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(onScaleGestureTrigger:)];
 //        [self addGestureRecognizer:_scaleGesture];
 //        _scaleGesture.enabled = YES;
@@ -408,8 +408,8 @@
 //        CGFloat x = fmin(fmax(point.x, 0), self.bounds.size.width);
 //
 //        //  计算选中索引
-//        CGFloat fWidthCandle = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH;
-//        CGFloat fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL;
+//        CGFloat fWidthCandle = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH;
+//        CGFloat fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL;
 //        NSInteger index = fmin(fmax(round(x / fRealWidth), 0), [_kdataArrayShowing count] - 1);
 //
 //        //  描绘

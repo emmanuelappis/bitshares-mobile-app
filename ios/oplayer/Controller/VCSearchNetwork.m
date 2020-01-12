@@ -468,7 +468,7 @@
                 if ([self isSearchMatched:[d objectForKey:sortKey] match:_currSearchText]){
                     for (id market in base_markets) {
                         id base = [market objectForKey:@"base"];
-                        //  REMARK：略过 base 和 quote 相同的交易对：CNY/CNY USD/USD BTS/BTS
+                        //  REMARK：略过 base 和 quote 相同的交易对：CNY/CNY USD/USD X4T/X4T
                         if ([[d objectForKey:@"symbol"] isEqualToString:[base objectForKey:@"symbol"]]){
                             continue;
                         }

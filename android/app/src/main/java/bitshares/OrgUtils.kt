@@ -128,7 +128,7 @@ class OrgUtils {
                     limit_orders_values.put(sell_asset_id, value)
                 }
             }
-            //  b.计算所有资产的总抵押量信息（目前抵押资产仅有BTS）和总债务信息（CNY、USD等）
+            //  b.计算所有资产的总抵押量信息（目前抵押资产仅有X4T）和总债务信息（CNY、USD等）
             val call_orders_values = JSONObject()
             val debt_values = JSONObject()
             val call_orders = full_account_data.optJSONArray("call_orders")
@@ -158,11 +158,11 @@ class OrgUtils {
                     validBalancesHash.put(balance.getString("asset_type"), balance)
                 }
             }
-            //  d.添加必须显示的资产（BTS、有挂单没余额、有抵押没余额、有债务没余额）
-            val core_asset = validBalancesHash.optJSONObject(BTS_NETWORK_CORE_ASSET_ID)
+            //  d.添加必须显示的资产（X4T、有挂单没余额、有抵押没余额、有债务没余额）
+            val core_asset = validBalancesHash.optJSONObject(X4T_NETWORK_CORE_ASSET_ID)
             //  没余额，初始化默认值。
             if (core_asset == null) {
-                validBalancesHash.put(BTS_NETWORK_CORE_ASSET_ID, jsonObjectfromKVS("asset_type", BTS_NETWORK_CORE_ASSET_ID, "balance", 0))
+                validBalancesHash.put(X4T_NETWORK_CORE_ASSET_ID, jsonObjectfromKVS("asset_type", X4T_NETWORK_CORE_ASSET_ID, "balance", 0))
             }
             for (asset_id in limit_orders_values.keys()) {
                 val asset = validBalancesHash.optJSONObject(asset_id)
@@ -407,7 +407,7 @@ class OrgUtils {
         }
 
         /**
-         *  (public) format 'ASSET' object to string, e.g.: 2323.32BTS
+         *  (public) format 'ASSET' object to string, e.g.: 2323.32X4T
          */
         fun formatAssetAmountItem(asset_json: JSONObject): String {
             val asset_id = asset_json.getString("asset_id")
@@ -652,7 +652,7 @@ class OrgUtils {
         }
 
         /**
-         * 根据私钥种子字符串生成 BTS 地址字符串。
+         * 根据私钥种子字符串生成 X4T 地址字符串。
          */
         fun genBtsAddressFromPrivateKeySeed(seed: String): String? {
             val prikey = NativeInterface.sharedNativeInterface().bts_gen_private_key_from_seed(seed.utf8String())
@@ -663,7 +663,7 @@ class OrgUtils {
         }
 
         /**
-         * 根据 WIF格式私钥 字符串生成 BTS 地址字符串。
+         * 根据 WIF格式私钥 字符串生成 X4T 地址字符串。
          */
         fun genBtsAddressFromWifPrivateKey(private_key_wif: String): String? {
             val prikey = NativeInterface.sharedNativeInterface().bts_gen_private_key_from_wif_privatekey(private_key_wif.utf8String())

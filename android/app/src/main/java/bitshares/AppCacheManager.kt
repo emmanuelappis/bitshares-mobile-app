@@ -157,7 +157,7 @@ class AppCacheManager {
             return this
         }
         //  REMARK：格式   object_id => {:expire_ts, :cache_object}
-        _objectinfo_caches.put(oid, jsonObjectfromKVS("expire_ts", Utils.now_ts() + kBTSObjectCacheExpireTime, "cache_object", obj))
+        _objectinfo_caches.put(oid, jsonObjectfromKVS("expire_ts", Utils.now_ts() + kX4TObjectCacheExpireTime, "cache_object", obj))
         return this
     }
 

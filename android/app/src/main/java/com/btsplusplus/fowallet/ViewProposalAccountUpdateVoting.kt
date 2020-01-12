@@ -25,8 +25,8 @@ class ViewProposalAccountUpdateVoting : LinearLayout {
             val old_voting_account = old_options_json.getString("voting_account")
             val new_voting_account = new_options_json.getString("voting_account")
 
-            val old_is_self = old_voting_account == BTS_GRAPHENE_PROXY_TO_SELF
-            val new_is_self = new_voting_account == BTS_GRAPHENE_PROXY_TO_SELF
+            val old_is_self = old_voting_account == X4T_GRAPHENE_PROXY_TO_SELF
+            val new_is_self = new_voting_account == X4T_GRAPHENE_PROXY_TO_SELF
 
             if (old_is_self && new_is_self) {
                 //  1、更新前后都无代理：更新投票信息对比投票差异

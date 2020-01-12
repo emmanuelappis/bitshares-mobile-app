@@ -3,7 +3,7 @@
 //  oplayer
 //
 //  Created by SYALON on 07-11-18.
-//  Copyright BTSPP 2018年. All rights reserved.
+//  Copyright X4TPP 2018年. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

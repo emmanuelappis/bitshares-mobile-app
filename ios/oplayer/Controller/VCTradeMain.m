@@ -577,7 +577,7 @@ enum
             //  买单：卖出 CNY
             issell = NO;
         }else if ([base_id isEqualToString:_tradingPair.quoteId] && [quote_id isEqualToString:_tradingPair.baseId]){
-            //  卖单：卖出 BTS
+            //  卖单：卖出 X4T
             issell = YES;
         }else{
             //  其他交易对的订单
@@ -1308,7 +1308,7 @@ enum
     
     //  TODO:fowallet 不足的时候否直接提示显示？？？
     if (![[[_balanceData objectForKey:@"fee_item"] objectForKey:@"sufficient"] boolValue]){
-        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 BTS/CNY/USD 用于支付网络手续费。")];
+        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 X4T/CNY/USD 用于支付网络手续费。")];
         return;
     }
 
@@ -1542,7 +1542,7 @@ enum
     
     assert(fee_item);
     if (![[fee_item objectForKey:@"sufficient"] boolValue]){
-        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 BTS/CNY/USD 用于支付网络手续费。")];
+        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 X4T/CNY/USD 用于支付网络手续费。")];
         return;
     }
     [_owner GuardWalletUnlocked:NO body:^(BOOL unlocked) {

@@ -156,7 +156,7 @@
                         [multi_sign_member_skip_cache_ids setObject:@YES forKey:multi_sign_account_id];
                     }
                     id voting_account = [[account objectForKey:@"options"] objectForKey:@"voting_account"];
-                    if (![voting_account isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF]){
+                    if (![voting_account isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF]){
                         [query_account_ids setObject:@YES forKey:voting_account];
                     }
                 }
@@ -173,7 +173,7 @@
                         [multi_sign_member_skip_cache_ids setObject:@YES forKey:multi_sign_account_id];
                     }
                     id voting_account = [[account objectForKey:@"options"] objectForKey:@"voting_account"];
-                    if (![voting_account isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF]){
+                    if (![voting_account isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF]){
                         [query_account_ids setObject:@YES forKey:voting_account];
                     }
                 }
@@ -198,7 +198,7 @@
                                 }
                             }
                             id voting_account = [new_options objectForKey:@"voting_account"];
-                            if (![voting_account isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF]){
+                            if (![voting_account isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF]){
                                 [query_account_ids setObject:@YES forKey:voting_account];
                             }
                         }
@@ -767,9 +767,9 @@
     //  REMARK：查询提案发起者是否处于黑名单中，黑名单中不可批准。
     ChainObjectManager* chainMgr = [ChainObjectManager sharedChainObjectManager];
     [self showBlockViewWithTitle:NSLocalizedString(@"kTipsBeRequesting", @"请求中...")];
-    [[[chainMgr queryAllGrapheneObjectsSkipCache:@[BTS_GRAPHENE_ACCOUNT_BTSPP_TEAM]] then:(^id(id data) {
+    [[[chainMgr queryAllGrapheneObjectsSkipCache:@[X4T_GRAPHENE_ACCOUNT_X4TPP_TEAM]] then:(^id(id data) {
         [self hideBlockView];
-        id account = [chainMgr getChainObjectByID:BTS_GRAPHENE_ACCOUNT_BTSPP_TEAM];
+        id account = [chainMgr getChainObjectByID:X4T_GRAPHENE_ACCOUNT_X4TPP_TEAM];
         id blacklisted_accounts = [account objectForKey:@"blacklisted_accounts"];
         
         id proposer_uid = [proposal objectForKey:@"proposer"];
@@ -971,7 +971,7 @@
     //    //  1、判断手续费是否足够。（TODO:暂时不判断）
     //    id fee_item =  [[ChainObjectManager sharedChainObjectManager] getFeeItem:ebo_proposal_update full_account_data:feePayingAccount];
     //    if (![[fee_item objectForKey:@"sufficient"] boolValue]){
-    //        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 BTS/CNY/USD 用于支付网络手续费。")];
+    //        [OrgUtils makeToast:NSLocalizedString(@"kTipsTxFeeNotEnough", @"手续费不足，请确保帐号有足额的 X4T/CNY/USD 用于支付网络手续费。")];
     //        return;
     //    }
     

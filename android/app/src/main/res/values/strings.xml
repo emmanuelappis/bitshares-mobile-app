@@ -256,7 +256,7 @@
     <string name="kLoginImportTipsPleaseInputPassword">Please input password.</string>
     <string name="kLoginImportTipsReadWalletFailed">Failed to read the wallet file.</string>
     <string name="kLoginImportTipsInvalidFileOrPassword">The wallet file is invalid or the password is incorrect.</string>
-    <string name="kLoginImportTipsNotBTSWallet">This wallet is not a Bitshares wallet.</string>
+    <string name="kLoginImportTipsNotX4TWallet">This wallet is not a Cryptonex wallet.</string>
     <string name="kLoginImportTipsWalletIsEmpty">The wallet is empty, please re-select.</string>
     <string name="kLoginImportTipsWalletHaveManyAccounts">The wallet contains multiple accounts and does not support import.</string>
     <string name="kLoginImportTipsWalletNoPrivateKey">The wallet does not contain a private key, please re-select.</string>
@@ -285,8 +285,8 @@
     <string name="kLoginCellWalletPassword">W-pwd</string>
     <string name="kLoginCellActivePrivateKey">key </string>
     <string name="kLoginCellConfirmPassword">Confirm </string>
-    <string name="kLoginRegTipsAccountMode">Tip: The password format can be viewed by clicking on the question mark. \nNote: Bitshares is a decentralized blockchain application. Once the password is lost or forgotten, it will not be retrieved. Please keep it in a safe place.</string>
-    <string name="kLoginRegTipsWalletMode">Tip: The password format can be viewed by clicking on the question mark. \nNote: Bitshares is a decentralized blockchain application. If the wallet file or password is lost or forgotten, it is not possible to retrieve it. It is recommended that you back up the wallet file after registration and keep it in a safe place. \n※ Wallet mode is recommended.</string>
+    <string name="kLoginRegTipsAccountMode">Tip: The password format can be viewed by clicking on the question mark. \nNote: Cryptonex is a decentralized blockchain application. Once the password is lost or forgotten, it will not be retrieved. Please keep it in a safe place.</string>
+    <string name="kLoginRegTipsWalletMode">Tip: The password format can be viewed by clicking on the question mark. \nNote: Cryptonex is a decentralized blockchain application. If the wallet file or password is lost or forgotten, it is not possible to retrieve it. It is recommended that you back up the wallet file after registration and keep it in a safe place. \n※ Wallet mode is recommended.</string>
     <string name="kLoginFaucetTipsInvalidArguments">Invalid argument.</string>
     <string name="kLoginFaucetTipsInvalidAccountFmt">The account format is incorrect.</string>
     <string name="kLoginFaucetTipsAccountAlreadyExist">The account already exists.</string>
@@ -648,7 +648,7 @@
     <string name="kSettingCurrencyNameEUR">Euro</string>
     <string name="kSettingCurrencyNameJPY">Japanese Yen</string>
     <string name="kSettingCurrencyNameKRW">Korean Won</string>
-    <string name="kSettingCurrencyNameBTS">Bitshares Core Asset</string>
+    <string name="kSettingCurrencyNameX4T">X4trade Core Asset</string>
     <!-- 各种VC标题栏名字 -->
     <string name="kVcTitleLogin">Login</string>
     <string name="kVcTitleImportAccount">Import account</string>
@@ -870,9 +870,9 @@
     <string name="kLangKeyJa">日本語 / Japanese</string>
     <string name="skip">Skip</string>
     <string name="kNormalErrorInvalidArgs">Invalid parameter.</string>
-    <string name="kAppName">Bitshares</string>
+    <string name="kAppName">Cryptonex</string>
     <string name="kAccount">Account</string>
-    <string name="kAboutMainDesc">\nBitshares Mobile App is a decentralized exchange (DEX) product based on Bitshares graphene technology, developed from the product experience and developed with native technology comparable to the first-class centralized exchange. \n\nContact us\nWeChat: bts-pp\nE-mail: contactsbtsplusplus.com\nTelegram: https://t.me/btsplusplus\nWebsite: https://btspp.io\n</string>
+    <string name="kAboutMainDesc">\nCryptonex Mobile App is a decentralized exchange (DEX) product based on X4Trade graphene technology, developed from the product experience and developed with native technology comparable to the first-class centralized exchange. \n\nContact us\nWeChat: dezzyboy\nE-mail: dezzyboy@glibx.com\nTelegram: https://t.me/\nWebsite: https://cryptonex.market\n</string>
     <string name="kAboutChannelAppStore">(AppStore Version &amp; Channel %s)</string>
     <string name="kAboutChannelWebsite">(Website Version &amp; Channel %s)</string>
     <string name="kAboutDebugVersion">(Debug Version)</string>
@@ -885,9 +885,9 @@
     <string name="kNormalCellBtnCreateWallet">Create</string>
     <string name="kTipsInitialize">Initialize…</string>
     <string name="kTipsBeRequesting">Requesting…</string>
-    <string name="kTipsTxFeeNotEnough">Insufficient handling fee, please make sure that the account has sufficient BTS/CNY/USD to pay the network fee.</string>
+    <string name="kTipsTxFeeNotEnough">Insufficient handling fee, please make sure that the account has sufficient X4T/CNY/USD to pay the network fee.</string>
     <string name="kTipsTxRequestFailed">The request failed. Please try again later.</string>
-    <string name="kSearchPlaceholderAccount">Please enter a valid Bitshares account</string>
+    <string name="kSearchPlaceholderAccount">Please enter a valid Cryptonex account</string>
     <string name="kSearchPlaceholderAsset">Click to search for new assets</string>
     <string name="kSearchTipsMyFavAccount">My Favorites(%s)</string>
     <string name="kSearchTipsMyCustomPairs">My pairs(%s)</string>

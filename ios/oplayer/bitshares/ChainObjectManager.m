@@ -68,10 +68,10 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
     {
         //  初始化各种属性默认值
         self.isTestNetwork = NO;
-        self.grapheneChainID = @BTS_NETWORK_CHAIN_ID;
-        self.grapheneCoreAssetID = BTS_NETWORK_CORE_ASSET_ID;
-        self.grapheneCoreAssetSymbol = @BTS_NETWORK_CORE_ASSET;
-        self.grapheneAddressPrefix = @BTS_ADDRESS_PREFIX;
+        self.grapheneChainID = @X4T_NETWORK_CHAIN_ID;
+        self.grapheneCoreAssetID = X4T_NETWORK_CORE_ASSET_ID;
+        self.grapheneCoreAssetSymbol = @X4T_NETWORK_CORE_ASSET;
+        self.grapheneAddressPrefix = @X4T_ADDRESS_PREFIX;
         
         _cacheAssetSymbol2ObjectHash = [NSMutableDictionary dictionary];
         _cacheObjectID2ObjectHash = [NSMutableDictionary dictionary];
@@ -396,7 +396,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
 {
     NSMutableDictionary* asset_base_priority = [NSMutableDictionary dictionary];
     NSInteger max_priority = 1000;
-    //  REMARK：优先级 从 CNY 到 BTS 逐渐降低，其他非市场 base 的资产优先级默认为 0。
+    //  REMARK：优先级 从 CNY 到 X4T 逐渐降低，其他非市场 base 的资产优先级默认为 0。
     for (id market in [self getDefaultMarketInfos]) {
         id symbol = [[market objectForKey:@"base"] objectForKey:@"symbol"];
         [asset_base_priority setObject:@(max_priority) forKey:symbol];
@@ -446,13 +446,13 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
  */
 - (NSDictionary*)getObjectGlobalProperties
 {
-    return [_cacheObjectID2ObjectHash objectForKey:BTS_GLOBAL_PROPERTIES_ID];
+    return [_cacheObjectID2ObjectHash objectForKey:X4T_GLOBAL_PROPERTIES_ID];
 }
 
 - (void)updateObjectGlobalProperties:(NSDictionary*)gp
 {
     if (gp){
-        [_cacheObjectID2ObjectHash setObject:gp forKey:BTS_GLOBAL_PROPERTIES_ID];
+        [_cacheObjectID2ObjectHash setObject:gp forKey:X4T_GLOBAL_PROPERTIES_ID];
     }
 }
 
@@ -687,10 +687,10 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
         //  该 fee 当前余额
         unsigned long long fee_balance_amount = [[balance_hash objectForKey:fee_asset_id] unsignedLongLongValue];
         
-        //  该 fee 是 BTS 还是其他资产分别处理
+        //  该 fee 是 X4T 还是其他资产分别处理
         if ([fee_asset_id isEqualToString:self.grapheneCoreAssetID]){
             if (fee_balance_amount >= bts_fee){
-                //  BTS 足够支付手续费
+                //  X4T 足够支付手续费
                 //  TODO:fowallet fee_amount 小概率为 nil。
                 return @{@"fee_asset_id":fee_asset_id, @"amount":fee_amount, @"amount_real":@(bts_fee_real), @"sufficient":@YES};
             }
@@ -707,7 +707,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
                 continue;
             }
             
-            //  其他资产和 BTS 资产进行兑换
+            //  其他资产和 X4T 资产进行兑换
             id core_exchange_rate = [[fee_asset objectForKey:@"options"] objectForKey:@"core_exchange_rate"];
             //  没有 core_exchange_rate 信息，则不能作为手续费。
             if (!core_exchange_rate){
@@ -738,13 +738,13 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
             double fee_precision_pow = pow(10, fee_precision);
             double fee_real = fee_amount_integer / fee_precision_pow;
             
-            //  REMARK：用于 CNY、USD 等兑换 BTS 的比例一直都在更新中，避免在用户操作过程中，兑换比例变化导致手续费不足。这里添加一个系数。
+            //  REMARK：用于 CNY、USD 等兑换 X4T 的比例一直都在更新中，避免在用户操作过程中，兑换比例变化导致手续费不足。这里添加一个系数。
             double final_fee_real = 1.2 * fee_real / bts_real * bts_fee_real;
             
             //  向上取整
             unsigned long long final_fee_amount = (unsigned long long)ceil(final_fee_real * fee_precision_pow);
             
-            //  REMARK：这里再把 其他资产的手续费(比如CNY)兑换回 BTS 值，然后判断 CNY 资产的手续费池是否足够。重要！！！
+            //  REMARK：这里再把 其他资产的手续费(比如CNY)兑换回 X4T 值，然后判断 CNY 资产的手续费池是否足够。重要！！！
             unsigned long long pool_min_value = ceil(bts_real / fee_real * (final_fee_amount / fee_precision_pow) * scale);
             
             //  手续费池余额不足
@@ -760,7 +760,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
         }
     }
     
-    //  默认选择BTS支付、但手续费不足。
+    //  默认选择X4T支付、但手续费不足。
     return @{@"fee_asset_id":self.grapheneCoreAssetID, @"amount":fee_amount, @"amount_real":@(bts_fee_real), @"sufficient":@NO};
 }
 
@@ -772,9 +772,9 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
 {
     GrapheneApi* api = [[GrapheneConnectionManager sharedGrapheneConnectionManager] any_connection].api_db;
     return [[api exec:@"get_chain_properties" params:@[]] then:(^id(id chain_properties) {
-        //  石墨烯网络区块链ID和BTS主网链ID不同，则为测试网络，不判断核心资产名字。因为测试网络资产名字也可能为BTS。
+        //  石墨烯网络区块链ID和X4T主网链ID不同，则为测试网络，不判断核心资产名字。因为测试网络资产名字也可能为X4T。
         id chain_id = [chain_properties objectForKey:@"chain_id"];
-        if (!chain_id || ![chain_id isEqualToString:@BTS_NETWORK_CHAIN_ID]){
+        if (!chain_id || ![chain_id isEqualToString:@X4T_NETWORK_CHAIN_ID]){
             self.isTestNetwork = YES;
         }else{
             self.isTestNetwork = NO;
@@ -906,7 +906,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
     for (id fee_symbol in [self getFeeAssetSymbolList]) {
         id fee_asset = [self getAssetBySymbol:fee_symbol];
         id fee_asset_id = fee_asset[@"id"];
-        //  BTS 资产作为支付手续费的核心资产，则不用查询，足够即可。
+        //  X4T 资产作为支付手续费的核心资产，则不用查询，足够即可。
         if ([fee_asset_id isEqualToString:self.grapheneCoreAssetID]){
             continue;
         }
@@ -921,7 +921,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
                        skipQueryCache:YES
                       skipCacheIdHash:nil] then:(^id(id asset_hash) {
         NSLog(@"[Track] queryFeeAssetListDynamicInfo step01 finish.");
-        // 仅有 BTS 可支付手续费，那么这里应该为空了。
+        // 仅有 X4T 可支付手续费，那么这里应该为空了。
         if ([asset_hash count] <= 0){
             return nil;
         }
@@ -1487,13 +1487,13 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
             //    "for_sale"=>128957118,
             //    "sell_price"=>
             //    {"base"=>{"amount"=>169535062, "asset_id"=>"1.3.0"},          #   base 是卖出的资产
-            //        "quote"=>{"amount"=>15970314, "asset_id"=>"1.3.113"}},
+            //        "quote"=>{"amount"=>15970314, "asset_id"=>"1.3.10"}},
             //    "deferred_fee"=>0},
             id sell_price = [limitOrder objectForKey:@"sell_price"];
             id base = [sell_price objectForKey:@"base"];
             id quote = [sell_price objectForKey:@"quote"];
             
-            //  REMARK：卖单的base和市场的base相同，则为买单。比如，BTS-CNY市场，卖出CNY即买入BTS。
+            //  REMARK：卖单的base和市场的base相同，则为买单。比如，X4T-CNY市场，卖出CNY即买入X4T。
             if ([[base objectForKey:@"asset_id"] isEqualToString:base_id]){
                 //  bid order: 单价price = 总价格base / 总数量quote
                 double value_base = [[base objectForKey:@"amount"] unsignedLongLongValue] / tradingPair.basePrecisionPow;
@@ -1502,7 +1502,7 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
                 
                 //  for_sale是卖出BASE，为总花费。比如 所有花费的CNY。
                 double base_amount = [[limitOrder objectForKey:@"for_sale"] unsignedLongLongValue] / tradingPair.basePrecisionPow;
-                //  总花费 / 单价，即买单的总数量。比如 BTS。
+                //  总花费 / 单价，即买单的总数量。比如 X4T。
                 double quote_amount = base_amount / price;  //  TODO:fowallet价格精度问题。
                 
                 //  累积
@@ -1511,12 +1511,12 @@ static ChainObjectManager *_sharedChainObjectManager = nil;
             }else{
                 //  ask order
                 
-                //  REMARK：卖单的base和市场quote相同，则为实际的卖单，比如，BTS-CNY市场，卖出BTS。
+                //  REMARK：卖单的base和市场quote相同，则为实际的卖单，比如，X4T-CNY市场，卖出X4T。
                 double sell_value = [[base objectForKey:@"amount"] unsignedLongLongValue] / tradingPair.quotePrecisionPow;
                 double buy_value = [[quote objectForKey:@"amount"] unsignedLongLongValue] / tradingPair.basePrecisionPow;
                 double price = buy_value / sell_value;
                 
-                //  for_sale是卖出QUOTE，即卖出BTS的数量。
+                //  for_sale是卖出QUOTE，即卖出X4T的数量。
                 double quote_amount = [[limitOrder objectForKey:@"for_sale"] unsignedLongLongValue] / tradingPair.quotePrecisionPow;
                 
                 //  总花费 = 单价 * 数量。

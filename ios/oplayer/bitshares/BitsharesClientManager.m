@@ -280,7 +280,7 @@ static BitsharesClientManager *_sharedBitsharesClientManager = nil;
                   };
         
         //  REMARK：理事会提案必须添加审核期。
-        assert(![[opaccount objectForKey:@"id"] isEqualToString:BTS_GRAPHENE_COMMITTEE_ACCOUNT] || kReviewPeriod > 0);
+        assert(![[opaccount objectForKey:@"id"] isEqualToString:X4T_GRAPHENE_COMMITTEE_ACCOUNT] || kReviewPeriod > 0);
         
         //  添加审核期
         if (kReviewPeriod > 0){

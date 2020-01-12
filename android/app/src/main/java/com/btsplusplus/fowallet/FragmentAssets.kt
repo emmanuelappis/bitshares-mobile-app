@@ -80,7 +80,7 @@ class FragmentAssets : BtsppFragment() {
             asset_final.put("precision", precision)
 
             //  资产类型（核心、智能、普通）
-            if (asset_type == BTS_NETWORK_CORE_ASSET_ID) {
+            if (asset_type == X4T_NETWORK_CORE_ASSET_ID) {
                 asset_final.put("is_core", "1")
             } else {
                 val bitasset_data_id = asset_detail.optString("bitasset_data_id")
@@ -131,7 +131,7 @@ class FragmentAssets : BtsppFragment() {
                 asset_final.put("trigger_price", trigger_price.toPriceAmountString())
             }
 
-            //  设置优先级   1-BTS   2-主要智能货币（CNY等）    3-有抵押等（其实目前只有BTS可抵押，不排除以后有其他可抵押货币。） 4-其他资产
+            //  设置优先级   1-X4T   2-主要智能货币（CNY等）    3-有抵押等（其实目前只有X4T可抵押，不排除以后有其他可抵押货币。） 4-其他资产
             var priority: Int = 0
             if (asset_final.optInt("is_core") != 0) {
                 priority = 1000
@@ -269,7 +269,7 @@ class FragmentAssets : BtsppFragment() {
     }
 
     private fun createCell(ctx: Context, layout_params: LinearLayout.LayoutParams, container: LinearLayout, data: JSONObject) {
-        // layout1 左: BTS  Core 右: ≈ 0.022893CNY%
+        // layout1 左: X4T  Core 右: ≈ 0.022893CNY%
         val ly1 = LinearLayout(ctx)
         ly1.orientation = LinearLayout.HORIZONTAL
         ly1.layoutParams = layout_params
@@ -473,7 +473,7 @@ class FragmentAssets : BtsppFragment() {
             }
         }
 
-        //  如果计价资产没对应的 base 市场，则获取第一个默认的 CNY 基本市场。（因为：计价资产有许多个，包括欧元等，但 base 市场只有 CNY、USD、BTS 三个而已。）
+        //  如果计价资产没对应的 base 市场，则获取第一个默认的 CNY 基本市场。（因为：计价资产有许多个，包括欧元等，但 base 市场只有 CNY、USD、X4T 三个而已。）
         if (baseMarket == null) {
             baseMarket = defaultMarketInfoList.first<JSONObject>()
         }
@@ -482,18 +482,18 @@ class FragmentAssets : BtsppFragment() {
         var base = chainMgr.getAssetBySymbol(baseMarket!!.getJSONObject("base").getString("symbol"))
         var quote = chainMgr.getChainObjectByID(clicked_asset_id)
 
-        //  REMARK：如果 base 和 quote 相同则特殊处理。CNY/CNY USD/USD BTS/BTS
+        //  REMARK：如果 base 和 quote 相同则特殊处理。CNY/CNY USD/USD X4T/X4T
         var base_symbol = base.getString("symbol")
         var quote_symbol = quote.getString("symbol")
         if (base_symbol == quote_symbol) {
             //  特殊处理
-            if (quote_symbol == "BTS") {
+            if (quote_symbol == "X4T") {
                 //  修改 base
                 base_symbol = "CNY"
                 base = chainMgr.getAssetBySymbol(base_symbol)
             } else {
                 //  修改 quote
-                quote_symbol = "BTS"
+                quote_symbol = "X4T"
                 quote = chainMgr.getAssetBySymbol(quote_symbol)
             }
         }

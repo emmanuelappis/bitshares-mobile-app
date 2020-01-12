@@ -193,42 +193,42 @@ typedef enum EBitsharesOperations
     ebo_htlc_refund = 53,           // VIRTUAL
 } EBitsharesOperations;
 
-//  BTS公钥地址前缀
-#define BTS_ADDRESS_PREFIX                  "BTS"
+//  X4T公钥地址前缀
+#define X4T_ADDRESS_PREFIX                  "X4T"
 
-//  BTS公钥地址前缀长度 = strlen(BTS_ADDRESS_PREFIX)
-//#define BTS_ADDRESS_PREFIX_LENGTH           3
+//  X4T公钥地址前缀长度 = strlen(X4T_ADDRESS_PREFIX)
+//#define X4T_ADDRESS_PREFIX_LENGTH           3
 
 //  交易过期时间？
-#define BTS_CHAIN_EXPIRE_IN_SECS            15
+#define X4T_CHAIN_EXPIRE_IN_SECS            15
 
-//  BTS主网公链ID（正式网络）
-#define BTS_NETWORK_CHAIN_ID                "4018d7844c78f6a6c41c6a552b898022310fc5dec06da467ee7905a8dad512c8"
+//  X4T主网公链ID（正式网络）
+#define X4T_NETWORK_CHAIN_ID                "56f37215a0f68bf8b5ee6e1c5b78b1c6d06bc78e8a69d67a2b1857d1c7a3dde3"
 
-//  BTS主网核心资产名称（正式网络）
-#define BTS_NETWORK_CORE_ASSET              "BTS"
+//  X4T主网核心资产名称（正式网络）
+#define X4T_NETWORK_CORE_ASSET              "X4T"
 
-//  BTS主网核心资产ID号
-#define BTS_NETWORK_CORE_ASSET_ID           @"1.3.0"
+//  X4T主网核心资产ID号
+#define X4T_NETWORK_CORE_ASSET_ID           @"1.3.0"
 
-//  BTS网络全局属性对象ID号
-#define BTS_GLOBAL_PROPERTIES_ID            @"2.0.0"
+//  X4T网络全局属性对象ID号
+#define X4T_GLOBAL_PROPERTIES_ID            @"2.0.0"
 
-//  BTS石墨烯特殊账号
+//  X4T石墨烯特殊账号
 //  0:理事会账号
-#define BTS_GRAPHENE_COMMITTEE_ACCOUNT      @"1.2.0"
-#define BTS_GRAPHENE_WITNESS_ACCOUNT        @"1.2.1"
+#define X4T_GRAPHENE_COMMITTEE_ACCOUNT      @"1.2.0"
+#define X4T_GRAPHENE_WITNESS_ACCOUNT        @"1.2.1"
 
 //  4:空账号（隐私交易可能需要由该账号支付手续费等）
-#define BTS_GRAPHENE_TEMP_ACCOUNT           @"1.2.4"
+#define X4T_GRAPHENE_TEMP_ACCOUNT           @"1.2.4"
 
 //  5:代理给自己
-#define BTS_GRAPHENE_PROXY_TO_SELF          @"1.2.5"
+#define X4T_GRAPHENE_PROXY_TO_SELF          @"1.2.5"
 
 //  黑名单意见账号：btspp-team
-#define BTS_GRAPHENE_ACCOUNT_BTSPP_TEAM     @"1.2.1031560"
+#define X4T_GRAPHENE_ACCOUNT_X4TPP_TEAM     @"1.2.1031560"
 
-//  BTS网络动态全局信息对象ID号
+//  X4T网络动态全局信息对象ID号
 //  格式：
 //    {"id"=>"2.1.0",
 //        "head_block_number"=>28508814,
@@ -244,6 +244,6 @@ typedef enum EBitsharesOperations
 //        "recent_slots_filled"=>"340282366920938463463374607431768211455",
 //        "dynamic_flags"=>0,
 //        "last_irreversible_block_num"=>28508796}}
-#define BTS_DYNAMIC_GLOBAL_PROPERTIES_ID    @"2.1.0"
+#define X4T_DYNAMIC_GLOBAL_PROPERTIES_ID    @"2.1.0"
 
 #endif /* __bts_chain_config__ */

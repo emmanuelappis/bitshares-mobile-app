@@ -15,8 +15,8 @@
 //  【系统通知】APP初始化成功之后发送
 #define kBtsAppEventInitDone                @"kBtsAppEventInitDone"
 
-//  BTS 对象本地缓存过期时间
-#define kBTSObjectCacheExpireTime           86400
+//  X4T 对象本地缓存过期时间
+#define kX4TObjectCacheExpireTime           86400
 
 //  UI - 部分参数配置
 #define kUITableViewLeftEdge                12.0f       //  左边距

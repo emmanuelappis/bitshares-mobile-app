@@ -94,7 +94,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center_vertical|center"
-                        android:text="BTS"
+                        android:text="X4T"
                         android:textColor="@color/theme01.textColorNormal" />
 
                     <Button
@@ -153,7 +153,7 @@
                         android:layout_height="match_parent"
 
                         android:gravity="center_vertical|center"
-                        android:text="BTS"
+                        android:text="X4T"
                         android:textSize="13dp"
                         android:textColor="@color/theme01.textColorNormal" />
 
@@ -220,7 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical|center"
-                        android:text="BTS"
+                        android:text="X4T"
                         android:textSize="13dp"
                         android:textColor="@color/theme01.textColorNormal" />
                 </LinearLayout>

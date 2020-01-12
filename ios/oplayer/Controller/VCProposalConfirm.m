@@ -74,7 +74,7 @@ enum
         // Custom initialization
         _opcode = opcode;
         _opdata = opdata;
-        _bForceAddReviewTime = [[opaccount objectForKey:@"id"] isEqualToString:BTS_GRAPHENE_COMMITTEE_ACCOUNT];
+        _bForceAddReviewTime = [[opaccount objectForKey:@"id"] isEqualToString:X4T_GRAPHENE_COMMITTEE_ACCOUNT];
         _callback = callback;
         _bResultCannelled = YES;
         _fee_paying_account = nil;

@@ -11,10 +11,10 @@
 #import "TradingPair.h"
 
 //  深度图总共行数
-#define kBTS_KLINE_DEEP_GRAPH_ROW_N         6
+#define kX4T_KLINE_DEEP_GRAPH_ROW_N         6
 
 //  深度图X轴高度
-#define kBTS_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT 20
+#define kX4T_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT 20
 
 @interface ViewDeepGraph : UITableViewCellBase
 

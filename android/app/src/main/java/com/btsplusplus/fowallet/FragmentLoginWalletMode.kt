@@ -327,7 +327,7 @@ class FragmentLoginWalletMode : Fragment() {
         //  加载成功判断钱包有效性
         val wallet = wallet_object.getJSONArray("wallet").getJSONObject(0)
         if (wallet.getString("chain_id") != ChainObjectManager.sharedChainObjectManager().grapheneChainID) {
-            showToast(_ctx!!.resources.getString(R.string.kLoginImportTipsNotBTSWallet))
+            showToast(_ctx!!.resources.getString(R.string.kLoginImportTipsNotX4TWallet))
             return
         }
 

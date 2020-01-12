@@ -170,7 +170,7 @@ class TransactionBuilder {
     private fun finalize(): Promise {
         assert(_tr_buffer == null)
         val conn = GrapheneConnectionManager.sharedGrapheneConnectionManager().any_connection()
-        return conn.async_exec_db("get_objects", jsonArrayfrom(jsonArrayfrom(BTS_DYNAMIC_GLOBAL_PROPERTIES_ID))).then {
+        return conn.async_exec_db("get_objects", jsonArrayfrom(jsonArrayfrom(X4T_DYNAMIC_GLOBAL_PROPERTIES_ID))).then {
             val data_array = it as JSONArray
             val data = data_array[0] as JSONObject
             //  1、过期时间戳设置
@@ -185,7 +185,7 @@ class TransactionBuilder {
                 else
                     base_expiration_sec = head_block_sec
             }
-            _expiration = base_expiration_sec + BTS_CHAIN_EXPIRE_IN_SECS
+            _expiration = base_expiration_sec + X4T_CHAIN_EXPIRE_IN_SECS
             //  2、更新 ref_block_num
             _ref_block_num = data.getInt("head_block_number") and 0xffff
             //  3、更新 ref_block_prefix

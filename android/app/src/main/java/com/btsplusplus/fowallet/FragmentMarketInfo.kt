@@ -378,7 +378,7 @@ class FragmentMarketInfo : BtsppFragment() {
             Crashlytics.log("ready to kline, base: $base, quote: $quote")
             val intent = Intent()
             intent.setClass(ctx, ActivityKLine::class.java)
-            intent.putExtra(BTSPP_START_ACTIVITY_PARAM_ID, ParametersManager.sharedParametersManager().genParams(jsonArrayfrom(base, quote)))
+            intent.putExtra(X4TPP_START_ACTIVITY_PARAM_ID, ParametersManager.sharedParametersManager().genParams(jsonArrayfrom(base, quote)))
             startActivity(intent)
         }
     }

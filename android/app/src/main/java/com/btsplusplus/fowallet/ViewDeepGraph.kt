@@ -7,7 +7,7 @@ import android.util.Size
 import android.util.SizeF
 import bitshares.dp
 import bitshares.forEach
-import bitshares.kBTS_KLINE_PRICE_VOL_FONTSIZE
+import bitshares.kX4T_KLINE_PRICE_VOL_FONTSIZE
 import com.btsplusplus.fowallet.kline.TradingPair
 import org.json.JSONArray
 import org.json.JSONObject
@@ -18,10 +18,10 @@ class ViewDeepGraph : ViewBase {
     companion object {
 
         //  深度图总共行数
-        const val kBTS_KLINE_DEEP_GRAPH_ROW_N = 6
+        const val kX4T_KLINE_DEEP_GRAPH_ROW_N = 6
 
         //  深度图X轴高度
-        const val kBTS_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT = 20
+        const val kX4T_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT = 20
 
     }
 
@@ -56,14 +56,14 @@ class ViewDeepGraph : ViewBase {
 
         _view_size = SizeF(width, height)
 
-        fMainGraphRowH = height / kBTS_KLINE_DEEP_GRAPH_ROW_N.toFloat()
-        fMainGraphHeight = (kBTS_KLINE_DEEP_GRAPH_ROW_N - 1) * fMainGraphRowH
+        fMainGraphRowH = height / kX4T_KLINE_DEEP_GRAPH_ROW_N.toFloat()
+        fMainGraphHeight = (kX4T_KLINE_DEEP_GRAPH_ROW_N - 1) * fMainGraphRowH
         fMainGraphOffset = height - fMainGraphHeight
-        fCellTotalHeight = height + kBTS_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT
+        fCellTotalHeight = height + kX4T_KLINE_DEEP_GRAPH_AXIS_X_HEIGHT
 
         //  初始化默认字体
         _fontname = Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL)
-        _fontsize = kBTS_KLINE_PRICE_VOL_FONTSIZE.toFloat()
+        _fontsize = kX4T_KLINE_PRICE_VOL_FONTSIZE.toFloat()
 
         //  REMARK：测量X轴、Y轴、MAX、MIN价格、VOL等字体高度用。
         _f10NumberSize = auxSizeWithText("0.123456789-:", _fontname, _fontsize)
@@ -239,8 +239,8 @@ class ViewDeepGraph : ViewBase {
         }
 
         //  描绘Y轴（数量区间）
-        var diff_sum = (max_sum - min_sum) / (kBTS_KLINE_DEEP_GRAPH_ROW_N - 1)
-        for (i in 1 until kBTS_KLINE_DEEP_GRAPH_ROW_N) {
+        var diff_sum = (max_sum - min_sum) / (kX4T_KLINE_DEEP_GRAPH_ROW_N - 1)
+        for (i in 1 until kX4T_KLINE_DEEP_GRAPH_ROW_N) {
             val value: Double = min_sum + diff_sum * i
 
             val scale = _tradingPair._numPrecision

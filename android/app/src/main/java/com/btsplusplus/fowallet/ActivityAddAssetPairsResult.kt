@@ -139,7 +139,7 @@ class ActivityAddAssetPairsResult : BtsppActivity() {
                     for (obj in base_markets) {
                         val market = obj!!
                         val base = market.getJSONObject("base")
-                        //  REMARK：略过 base 和 quote 相同的交易对：CNY/CNY USD/USD BTS/BTS
+                        //  REMARK：略过 base 和 quote 相同的交易对：CNY/CNY USD/USD X4T/X4T
                         if (data.getString("symbol") == base.getString("symbol")) {
                             continue
                         }

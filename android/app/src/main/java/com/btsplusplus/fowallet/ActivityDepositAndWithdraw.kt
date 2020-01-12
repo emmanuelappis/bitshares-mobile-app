@@ -99,15 +99,15 @@ class ActivityDepositAndWithdraw : BtsppActivity() {
                 put("helps", JSONArray().apply {
                     put(JSONObject().apply {
                         put("title", R.string.kVcDWHelpTitleSupport.xmlstring(ctx))
-                        put("value", "https://rudex.freshdesk.com")
+                        put("value", "https://cryptonex.market")
                     })
                     put(JSONObject().apply {
                         put("title", "Twitter")
-                        put("value", "https://twitter.com/rudex_bitshares")
+                        put("value", "https://cryptonex.market")
                     })
                     put(JSONObject().apply {
                         put("title", R.string.kVcDWHelpTitleTelegram.xmlstring(ctx))
-                        put("value", "https://t.me/BitSharesDEX_RU")
+                        put("value", "https://cryptonex.market")
                     })
                 })
             })

@@ -119,10 +119,10 @@
 - (BOOL)_canBeModified:(NSDictionary*)account permission:(id)permission
 {
     id oid = [account objectForKey:@"id"];
-    if ([oid isEqualToString:BTS_GRAPHENE_COMMITTEE_ACCOUNT] ||
-        [oid isEqualToString:BTS_GRAPHENE_WITNESS_ACCOUNT] ||
-        [oid isEqualToString:BTS_GRAPHENE_TEMP_ACCOUNT] ||
-        [oid isEqualToString:BTS_GRAPHENE_PROXY_TO_SELF]) {
+    if ([oid isEqualToString:X4T_GRAPHENE_COMMITTEE_ACCOUNT] ||
+        [oid isEqualToString:X4T_GRAPHENE_WITNESS_ACCOUNT] ||
+        [oid isEqualToString:X4T_GRAPHENE_TEMP_ACCOUNT] ||
+        [oid isEqualToString:X4T_GRAPHENE_PROXY_TO_SELF]) {
         return NO;
     }
     return YES;

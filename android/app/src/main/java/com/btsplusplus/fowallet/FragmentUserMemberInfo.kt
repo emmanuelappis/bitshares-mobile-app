@@ -165,7 +165,7 @@ class FragmentUserMemberInfo : BtsppFragment() {
         val op_data = JSONObject().apply {
             put("fee", JSONObject().apply {
                 put("amount", 0)
-                put("asset_id", BTS_NETWORK_CORE_ASSET_ID)
+                put("asset_id", X4T_NETWORK_CORE_ASSET_ID)
             })
             put("account_to_upgrade", account_info.getString("id"))
             put("upgrade_to_lifetime_member", true)

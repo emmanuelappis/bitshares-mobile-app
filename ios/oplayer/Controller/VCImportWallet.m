@@ -318,7 +318,7 @@
     //  加载成功判断钱包有效性
     id wallet = [[wallet_object objectForKey:@"wallet"] firstObject];
     if (![[wallet objectForKey:@"chain_id"] isEqualToString:chainMgr.grapheneChainID]){
-        [OrgUtils makeToast:NSLocalizedString(@"kLoginImportTipsNotBTSWallet", @"该钱包不是Bitshares区块链的钱包。")];
+        [OrgUtils makeToast:NSLocalizedString(@"kLoginImportTipsNotX4TWallet", @"该钱包不是Bitshares区块链的钱包。")];
         return;
     }
     

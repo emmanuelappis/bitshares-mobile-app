@@ -226,7 +226,7 @@ class ActivityCreateHtlcContract : BtsppActivity() {
      */
     private fun _randomSecurePreimage(): String {
         //  TODO:fowallet 最大原像不能超过 o.preimage_size <= htlc_options->max_preimage_size
-        return String.format("BTSPP%sPREIMAGE", WalletManager.randomPrivateKeyWIF()).toUpperCase()
+        return String.format("X4TPP%sPREIMAGE", WalletManager.randomPrivateKeyWIF()).toUpperCase()
     }
 
     /**
@@ -651,7 +651,7 @@ class ActivityCreateHtlcContract : BtsppActivity() {
                 none_zero_balances.put(balance_item)
             }
         }
-        //  如果资产列表为空，则添加默认值。{BTS:0}
+        //  如果资产列表为空，则添加默认值。{X4T:0}
         if (none_zero_balances.length() <= 0) {
             val balance_object = jsonObjectfromKVS("asset_id", chainMgr.grapheneCoreAssetID, "amount", 0)
             none_zero_balances = jsonArrayfrom(balance_object)
@@ -675,9 +675,9 @@ class ActivityCreateHtlcContract : BtsppActivity() {
         val account_info = _full_account_data!!.getJSONObject("account")
         _transfer_args!!.put("from", jsonObjectfromKVS("id", account_info.getString("id"), "name", account_info.getString("name")))
         if (_default_asset == null) {
-            //  TODO:fowallet 默认值，优先选择CNY、没CNY选择BTS。TODO：USD呢？？
+            //  TODO:fowallet 默认值，优先选择CNY、没CNY选择X4T。TODO：USD呢？？
             for (asset in _asset_list!!) {
-                if (asset!!.getString("id") == "1.3.113") {
+                if (asset!!.getString("id") == "1.3.10") {
                     _default_asset = asset
                     break
                 }

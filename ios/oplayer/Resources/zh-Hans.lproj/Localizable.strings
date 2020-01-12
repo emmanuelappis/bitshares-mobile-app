@@ -59,7 +59,7 @@
 "kServicesCellLabelFeedPrice" = "喂价详情";
 "kServicesCellLabelDepositWithdraw" = "充币提币";
 "kServicesCellLabelAdvFunction" = "高级功能";
-"kServicesCellLabelBtsExplorer" = "BTS浏览器";
+"kServicesCellLabelBtsExplorer" = "X4T浏览器";
 
 /* 扫一扫相关字符串 */
 "kVcScanPermissionNoCamera" = "未检测到您的摄像头。";
@@ -272,7 +272,7 @@
 "kLoginImportTipsPleaseInputPassword" = "请输入密码。";
 "kLoginImportTipsReadWalletFailed" = "读取钱包文件失败。";
 "kLoginImportTipsInvalidFileOrPassword" = "钱包文件无效或密码不正确。";
-"kLoginImportTipsNotBTSWallet" = "该钱包不是Bitshares区块链的钱包。";
+"kLoginImportTipsNotX4TWallet" = "该钱包不是Bitshares区块链的钱包。";
 "kLoginImportTipsWalletIsEmpty" = "该钱包为空钱包，请重选选择。";
 "kLoginImportTipsWalletHaveManyAccounts" = "该钱包包含多个账户，不支持导入。";
 "kLoginImportTipsWalletNoPrivateKey" = "该钱包不包含密钥信息，请重新选择。";
@@ -676,7 +676,7 @@
 "kSettingCurrencyNameEUR" = "欧元";
 "kSettingCurrencyNameJPY" = "日元";
 "kSettingCurrencyNameKRW" = "韩元";
-"kSettingCurrencyNameBTS" = "比特股核心资产";
+"kSettingCurrencyNameX4T" = "比特股核心资产";
 
 /* 各种VC标题栏名字 */
 "kVcTitleLogin" = "登录";
@@ -919,7 +919,7 @@
 "kNormalCellBtnCreateWallet" = "创建钱包";
 "kTipsInitialize" = "初始化中…";
 "kTipsBeRequesting" = "请求中…";
-"kTipsTxFeeNotEnough" = "手续费不足，请确保账号有足额的 BTS/CNY/USD 用于支付网络手续费。";
+"kTipsTxFeeNotEnough" = "手续费不足，请确保账号有足额的 X4T/CNY/USD 用于支付网络手续费。";
 "kTipsTxRequestFailed" = "请求失败，请稍后再试。";
 "kSearchPlaceholderAccount" = "请输入有效的 Bitshares 账号名";
 "kSearchPlaceholderAsset" = "点击搜索新资产";

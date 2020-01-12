@@ -84,13 +84,13 @@ extern "C"
     extern void __bts_private_key_to_wif(const unsigned char private_key32[], unsigned char wif_output51[], size_t* wif_output_size);
     
     /**
-     *  从公钥结构生成 BTS 地址字符串
+     *  从公钥结构生成 X4T 地址字符串
      */
     extern void __bts_public_key_to_address(const secp256k1_pubkey* public_key, unsigned char address_output[], size_t* address_output_size,
                                             const char* address_prefix, const size_t address_prefix_size);
     
     /**
-     *  从 32 字节原始私钥生成 BTS 地址字符串
+     *  从 32 字节原始私钥生成 X4T 地址字符串
      */
     extern bool __bts_gen_address_from_private_key32(const unsigned char private_key32[],
                                                      unsigned char address_output[], size_t* address_output_size,
@@ -102,7 +102,7 @@ extern "C"
     extern bool __bts_gen_private_key_from_wif_privatekey(const unsigned char* wif_privatekey, const size_t wif_privatekey_size, unsigned char private_key32[]);
     
     /**
-     *  从BTS地址初始化公钥结构体
+     *  从X4T地址初始化公钥结构体
      */
     extern bool __bts_gen_public_key_from_b58address(const unsigned char* address, const size_t address_size,
                                                      const size_t address_prefix_size, secp256k1_pubkey* output_public);

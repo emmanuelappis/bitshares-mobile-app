@@ -186,7 +186,7 @@
     
     //  获取区块链数据
     GrapheneApi* api = [[GrapheneConnectionManager sharedGrapheneConnectionManager] last_connection].api_db;
-    id p = [api exec:@"get_objects" params:@[@[BTS_DYNAMIC_GLOBAL_PROPERTIES_ID]]];
+    id p = [api exec:@"get_objects" params:@[@[X4T_DYNAMIC_GLOBAL_PROPERTIES_ID]]];
     return [p then:(^id(id data) {
         data = [data firstObject];
         NSLog(@"%@", data);
@@ -221,7 +221,7 @@
             base_expiration_sec = now_sec > head_block_sec ? now_sec : head_block_sec;
         }
         
-        _expiration = (uint32_t)(base_expiration_sec + BTS_CHAIN_EXPIRE_IN_SECS);
+        _expiration = (uint32_t)(base_expiration_sec + X4T_CHAIN_EXPIRE_IN_SECS);
         
         //  2、更新 _ref_block_num
         _ref_block_num = [[data objectForKey:@"head_block_number"] integerValue] & 0xffff;

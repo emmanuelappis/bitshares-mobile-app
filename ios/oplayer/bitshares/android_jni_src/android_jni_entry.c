@@ -423,7 +423,7 @@ java_jni_entry_bts_private_key_to_wif(JNIEnv* env, jobject self,
 }
 
 /**
- *  从公钥结构生成 BTS 地址字符串
+ *  从公钥结构生成 X4T 地址字符串
  */
 JNIEXPORT jbyteArray
 java_jni_entry_bts_public_key_to_address(JNIEnv* env, jobject self,
@@ -460,7 +460,7 @@ java_jni_entry_bts_public_key_to_address(JNIEnv* env, jobject self,
 }
 
 /**
- *  从 32 字节原始私钥生成 BTS 地址字符串
+ *  从 32 字节原始私钥生成 X4T 地址字符串
  */    
 JNIEXPORT jbyteArray
 java_jni_entry_bts_gen_address_from_private_key32(JNIEnv* env, jobject self,
@@ -533,7 +533,7 @@ java_jni_entry_bts_gen_private_key_from_wif_privatekey(JNIEnv* env, jobject self
 }
 
 /**
- *  从BTS地址初始化公钥结构体
+ *  从X4T地址初始化公钥结构体
  */    
 JNIEXPORT jbyteArray
 java_jni_entry_bts_gen_public_key_from_b58address(JNIEnv* env, jobject self,

@@ -264,7 +264,7 @@ enum
                                   @{@"title":@"Twitter",
                                     @"value":@"https://twitter.com/rudex_bitshares", @"url":@YES},
                                   @{@"title":NSLocalizedString(@"kVcDWHelpTitleTelegram", @"电报"),
-                                    @"value":@"https://t.me/BitSharesDEX_RU", @"url":@YES},
+                                    @"value":@"https://t.me/CRYPTONEXDEX_RU", @"url":@YES},
                                   ],
                           },
                       ];

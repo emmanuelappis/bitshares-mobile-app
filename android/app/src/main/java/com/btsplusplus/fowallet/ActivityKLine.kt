@@ -164,7 +164,7 @@ class ActivityKLine : BtsppActivity() {
             val default_query_seconds = getDatePeriodSeconds(kline_period_ary.getInt(kline_period_default_index))
             val now: Long = Utils.now_ts()
             val snow = Utils.formatBitsharesTimeString(now)
-            val sbgn = Utils.formatBitsharesTimeString(now - default_query_seconds * kBTS_KLINE_MAX_SHOW_CANDLE_NUM)
+            val sbgn = Utils.formatBitsharesTimeString(now - default_query_seconds * kX4T_KLINE_MAX_SHOW_CANDLE_NUM)
 
             val api_conn = GrapheneConnectionManager.sharedGrapheneConnectionManager().any_connection()
             val initKdata = api_conn.async_exec_history("get_market_history", jsonArrayfrom(_tradingPair._baseId, _tradingPair._quoteId, default_query_seconds, sbgn, snow))
@@ -451,7 +451,7 @@ class ActivityKLine : BtsppActivity() {
 
         val now = Utils.now_ts()
         val snow = Utils.formatBitsharesTimeString(now)
-        val sbgn = Utils.formatBitsharesTimeString(now - seconds * kBTS_KLINE_MAX_SHOW_CANDLE_NUM)
+        val sbgn = Utils.formatBitsharesTimeString(now - seconds * kX4T_KLINE_MAX_SHOW_CANDLE_NUM)
         val api_conn = GrapheneConnectionManager.sharedGrapheneConnectionManager().any_connection()
 
         val api_history = api_conn.async_exec_history("get_market_history", jsonArrayfrom(_tradingPair._baseId, _tradingPair._quoteId, seconds, sbgn, snow))

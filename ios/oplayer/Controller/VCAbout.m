@@ -51,7 +51,7 @@
     appnamever.textColor = [ThemeManager sharedThemeManager].textColorGray;
     appnamever.textAlignment = NSTextAlignmentCenter;
     appnamever.font = [UIFont systemFontOfSize:13];
-    appnamever.text = [NSString stringWithFormat:@"%@ v%@", NSLocalizedString(@"kAppName", @"BTS++"), [NativeAppDelegate appShortVersion]];
+    appnamever.text = [NSString stringWithFormat:@"%@ v%@", NSLocalizedString(@"kAppName", @"X4T++"), [NativeAppDelegate appShortVersion]];
     [iconAreaView addSubview:appnamever];
     
     //  关于介绍的说明文档部分
@@ -69,7 +69,7 @@
     
     //  介绍&主程序版本号
     [lines addObject:NSLocalizedString(@"kAboutMainDesc", @"\n比特股移动端钱包是基于石墨烯技术，从产品体验出发，采用原生技术开发的一款可媲美一流中心化交易所的去中心化交易所（DEX）产品。\n\n联系我们\n微信：bts-pp\n邮箱：contact@btsplusplus.com\n电报：https://t.me/btsplusplus\n官网：https://btspp.io\n")];
-    [lines addObject:[NSString stringWithFormat:@"%@ v%@", NSLocalizedString(@"kAppName", @"BTS++"), [NativeAppDelegate appVersion]]];
+    [lines addObject:[NSString stringWithFormat:@"%@ v%@", NSLocalizedString(@"kAppName", @"X4T++"), [NativeAppDelegate appVersion]]];
     
 #if kAppChannelID == 1
     [lines addObject:[NSString stringWithFormat:NSLocalizedString(@"kAboutChannelAppStore", @"(商店版 & 渠道 %@)"), @(kAppChannelID)]];

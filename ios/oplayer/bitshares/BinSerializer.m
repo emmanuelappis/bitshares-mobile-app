@@ -148,7 +148,7 @@ static char _varint_tmpbuf[10];
 }
 
 /**
- *  写入公钥对象。REMARK：BTS开头的地址。
+ *  写入公钥对象。REMARK：X4T开头的地址。
  */
 - (BinSerializer*)write_public_key:(NSString*)public_key_address
 {

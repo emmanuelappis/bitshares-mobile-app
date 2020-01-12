@@ -146,7 +146,7 @@ class ViewKLine : ViewBase {
     private fun genCandleLayer(model: MKlineItemData, index: Int, candle_width: Float) {
 
         //  蜡烛宽度（包括中间间隔像素）
-        val spaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+        val spaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
 
         //  判断涨跌来设置颜色
         val candle_paint = if (model.isRise) {
@@ -171,7 +171,7 @@ class ViewKLine : ViewBase {
 
             val x1 = index * spaceW
             val y1 = fMainMAHeight + yOffset
-            val x2 = x1 + candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH
+            val x2 = x1 + candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH
             val y2 = y1 + fHeight
 
             val candleFrame = RectF(x1, y1, x2, y2)
@@ -191,7 +191,7 @@ class ViewKLine : ViewBase {
      *  绘制成交量柱子
      */
     private fun genVolumeLayer(model: MKlineItemData, index: Int, candle_width: Float) {
-        val spaceW: Float = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+        val spaceW: Float = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
 
         //  成交量柱子底部Y坐标
         var fVolumeGraphBottomY = _view_size.height
@@ -211,7 +211,7 @@ class ViewKLine : ViewBase {
         if (candle_width > 0) {
             val x1 = index * spaceW
             val y2 = fVolumeGraphBottomY
-            val x2 = x1 + candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH
+            val x2 = x1 + candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH
             val y1 = y2 + ceil(-model.fOffset24Vol)
 
             val candleFrame = RectF(x1, y1, x2, y2)
@@ -244,16 +244,16 @@ class ViewKLine : ViewBase {
         paint.strokeWidth = toDp(1.0f)
         framePath.addRect(frame, Path.Direction.CW)
 
-        val cellW: Float = frameW / kBTS_KLINE_COL_NUM
+        val cellW: Float = frameW / kX4T_KLINE_COL_NUM
 
-        //  绘制竖线（kBTS_KLINE_COL_NUM - 1）条
-        for (i in 0 until kBTS_KLINE_COL_NUM - 1) {
+        //  绘制竖线（kX4T_KLINE_COL_NUM - 1）条
+        for (i in 0 until kX4T_KLINE_COL_NUM - 1) {
             framePath.moveTo(frameX + cellW * (i + 1), frameY)
             framePath.lineTo(frameX + cellW * (i + 1), frameY + frameH)
         }
 
-        //  绘制横线（kBTS_KLINE_ROW_NUM - 1）条。由于区域顶部显示MA指标，所以横线需要往下偏移。
-        for (i in 0 until kBTS_KLINE_ROW_NUM - 1) {
+        //  绘制横线（kX4T_KLINE_ROW_NUM - 1）条。由于区域顶部显示MA指标，所以横线需要往下偏移。
+        for (i in 0 until kX4T_KLINE_ROW_NUM - 1) {
             framePath.moveTo(frameX, frameY + fOneCellHeight * (i + 1) + fMainMAHeight)
             framePath.lineTo(frameX + frameW, frameY + fOneCellHeight * (i + 1) + fMainMAHeight)
         }
@@ -261,7 +261,7 @@ class ViewKLine : ViewBase {
         //  REMARK：显示MACD等高级指标区域多一条线。
         if (_kSubIndexType != EKLineSubIndexType.eksit_show_none) {
             val fSecondHeightAll = fSecondGraphHeight + fSecondMAHeight
-            val fSubOffsetY = frameY + fOneCellHeight * (kBTS_KLINE_ROW_NUM - 1) + fMainMAHeight
+            val fSubOffsetY = frameY + fOneCellHeight * (kX4T_KLINE_ROW_NUM - 1) + fMainMAHeight
             framePath.moveTo(frameX, fSubOffsetY + fSecondHeightAll)
             framePath.lineTo(frameX + frameW, fSubOffsetY + fSecondHeightAll)
         }
@@ -275,8 +275,8 @@ class ViewKLine : ViewBase {
      */
     private fun calcMaxShowCandleNumber(candle_width: Float): Int {
         val fMaxWidth: Float = _view_size.width
-        val fWidthCandle: Float = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH
-        val fRealWidth: Float = fWidthCandle + kBTS_KLINE_INTERVAL
+        val fWidthCandle: Float = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH
+        val fRealWidth: Float = fWidthCandle + kX4T_KLINE_INTERVAL
 
         var num: Int = floor(fMaxWidth / fRealWidth).toInt()
 
@@ -650,9 +650,9 @@ class ViewKLine : ViewBase {
 
         val currDiffPrice: BigDecimal = max_price!!.subtract(min_price)
         val f_diff_price: Double = currDiffPrice.toDouble()
-        assert(kBTS_KLINE_ROW_NUM >= 2)
+        assert(kX4T_KLINE_ROW_NUM >= 2)
 
-        val n_rows: BigDecimal = BigDecimal(kBTS_KLINE_ROW_NUM - 1).setScale(0)
+        val n_rows: BigDecimal = BigDecimal(kX4T_KLINE_ROW_NUM - 1).setScale(0)
         _currRowPriceStep = currDiffPrice.divide(n_rows)
 
         //  计算开收高低屏幕位置 REMARK：K线可描绘区域底部流程半个行高，用于显示MIN价格，不然MIN价格会超出底线。
@@ -712,7 +712,7 @@ class ViewKLine : ViewBase {
      */
     fun formatDateString(date_ts: Long): String {
         val d = Date(date_ts * 1000)
-        //  REMARK：BTS默认时间是UTC时间，这里按照本地时区格式化。
+        //  REMARK：X4T默认时间是UTC时间，这里按照本地时区格式化。
         var fmt = ""
         when (ekdptType!!.value) {
             ViewKLine.EKlineDatePeriodType.ekdpt_timeline.value -> fmt = "HH:mm"
@@ -740,7 +740,7 @@ class ViewKLine : ViewBase {
      *  描绘分时图
      */
     private fun drawTimeLine(candle_width: Float) {
-        val candleSpaceW: Float = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+        val candleSpaceW: Float = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
 
         val timeline_points: MutableList<PointF> = mutableListOf()
         for ((idx, m: MKlineItemData) in _kdataArrayShowing.withIndex()) {
@@ -864,7 +864,7 @@ class ViewKLine : ViewBase {
             }
         }
 
-        val candleSpaceW = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+        val candleSpaceW = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
 
         //  1、描绘0轴线
         val fZeroLinePointY = floor(_view_size.height - fZeroLineOffset).toFloat()
@@ -950,7 +950,7 @@ class ViewKLine : ViewBase {
             return
         }
 
-        val candleSpaceW: Float = candle_width * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+        val candleSpaceW: Float = candle_width * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
 
         //  保留小数位数 向上取整
         val ceilHandlerScale: Int = _base_precision
@@ -959,7 +959,7 @@ class ViewKLine : ViewBase {
         //  1、描绘背景右边(Y轴)价格区间
         var currStep = BigDecimal(_currMinPrice!!.toPlainString())
 
-        for (i in 0 until kBTS_KLINE_ROW_NUM) {
+        for (i in 0 until kX4T_KLINE_ROW_NUM) {
             var txtOffsetY: Float? = null
             var price: BigDecimal? = null
             when (i) {
@@ -967,7 +967,7 @@ class ViewKLine : ViewBase {
                     price = _currMinPrice
                     txtOffsetY = fMainGraphHeight.plus(fMainMAHeight) - _f10NumberSize!!.height + 8.0f
                 }
-                kBTS_KLINE_ROW_NUM - 1 -> {
+                kX4T_KLINE_ROW_NUM - 1 -> {
                     price = _currMaxPrice
                     txtOffsetY = _f10NumberSize!!.height * 2
                 }
@@ -985,7 +985,7 @@ class ViewKLine : ViewBase {
         }
 
         //  2、描绘底部x轴时间
-        for (i in 0..kBTS_KLINE_COL_NUM) {
+        for (i in 0..kX4T_KLINE_COL_NUM) {
             var dateCandleIndex: Int? = null
             var align: Any? = null
             var txtX: Float? = null
@@ -995,15 +995,15 @@ class ViewKLine : ViewBase {
                     align = Paint.Align.LEFT
                     txtX = 2.0f.dp
                 }
-                kBTS_KLINE_COL_NUM -> {
+                kX4T_KLINE_COL_NUM -> {
                     dateCandleIndex = maxShowNum - 1
                     align = Paint.Align.RIGHT
                     txtX = _view_size.width - 2.dp
                 }
                 else -> {
-                    dateCandleIndex = round(i.times(maxShowNum).div(kBTS_KLINE_COL_NUM).toDouble()).toInt()
+                    dateCandleIndex = round(i.times(maxShowNum).div(kX4T_KLINE_COL_NUM).toDouble()).toInt()
                     align = Paint.Align.CENTER
-                    txtX = i * _view_size.width / kBTS_KLINE_COL_NUM
+                    txtX = i * _view_size.width / kX4T_KLINE_COL_NUM
                 }
             }
             //  有可能时间轴区域对上去没有蜡烛信息（比如刚开盘或者成交量低等交易对）。所以需要用 safe 接口获取数据。
@@ -1011,7 +1011,7 @@ class ViewKLine : ViewBase {
             if (m != null) {
                 val str: String = formatDateString(m.date)
                 val txt_paint: Paint = getTextPaintWithString(str, resources.getColor(R.color.theme01_textColorNormal), _fontname!!, _fontsize!!)
-                val offsetY = _view_size.height + 4f.dp + kBTS_KLINE_PRICE_VOL_FONTSIZE
+                val offsetY = _view_size.height + 4f.dp + kX4T_KLINE_PRICE_VOL_FONTSIZE
                 txt_paint.textAlign = align
                 m_canvas.drawText(str, txtX, offsetY, txt_paint)
             }
@@ -1107,7 +1107,7 @@ class ViewKLine : ViewBase {
         //  5、描绘副图最大成交量、主图最大价格、最小价格
         if (_currMaxVolume != null) {
             val txtPaint: Paint = getTextPaintWithString(_currMaxVolume!!.toPlainString(), resources.getColor(R.color.theme01_textColorNormal), _fontname!!, _fontsize!!)
-            val frame = RectF(0f, fMainGraphHeight.plus(fMainMAHeight) + kBTS_KLINE_PRICE_VOL_FONTSIZE, _view_size.width - 4.dp, fSecondMAHeight)
+            val frame = RectF(0f, fMainGraphHeight.plus(fMainMAHeight) + kX4T_KLINE_PRICE_VOL_FONTSIZE, _view_size.width - 4.dp, fSecondMAHeight)
             txtPaint.textAlign = Paint.Align.RIGHT
             m_canvas.drawText(_currMaxVolume!!.toPlainString(), frame.right, frame.top, txtPaint)
         }
@@ -1125,13 +1125,13 @@ class ViewKLine : ViewBase {
 
             if (candle_max_price_model.showIndex >= maxShowNum / 2) {
                 //  最高价格在右边区域：靠左边显示
-                lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width - kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
-                lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width - kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
                 txtOffsetX = lineStartX - 2 - str_size.width
             } else {
                 //  最高价格在右边区域：靠右边显示
                 lineStartX = candle_max_price_model.showIndex * candleSpaceW + candle_width
-                lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
                 txtOffsetX = lineEndX + 2
             }
 
@@ -1164,13 +1164,13 @@ class ViewKLine : ViewBase {
 
             if (candle_min_price_model.showIndex >= maxShowNum / 2) {
                 //  最低价格在右边区域：靠左边显示
-                lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width - kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
-                lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width - kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
                 txtOffsetX = lineStartX - 2 - str_size.width
             } else {
                 //  最低价格在右边区域：靠右边显示
                 lineStartX = candle_min_price_model.showIndex * candleSpaceW + candle_width
-                lineEndX = lineStartX + kBTS_KLINE_HL_PRICE_SHORT_LINE_LENGTH
+                lineEndX = lineStartX + kX4T_KLINE_HL_PRICE_SHORT_LINE_LENGTH
                 txtOffsetX = lineEndX + 2
             }
 
@@ -1323,18 +1323,18 @@ class ViewKLine : ViewBase {
     }
 
     private fun setMainSubAdvAreaArgs(width: Float) {
-        fOneCellHeight = width / kBTS_KLINE_ROW_NUM
-        fMainGraphHeight = fOneCellHeight * (kBTS_KLINE_ROW_NUM - 1)
-        fMainMAHeight = fOneCellHeight * kBTS_KLINE_MA_HEIGHT
+        fOneCellHeight = width / kX4T_KLINE_ROW_NUM
+        fMainGraphHeight = fOneCellHeight * (kX4T_KLINE_ROW_NUM - 1)
+        fMainMAHeight = fOneCellHeight * kX4T_KLINE_MA_HEIGHT
 
         val fSecondGraphTotal = fOneCellHeight - fMainMAHeight
-        fSecondMAHeight = fSecondGraphTotal * kBTS_KLINE_MA_HEIGHT
+        fSecondMAHeight = fSecondGraphTotal * kX4T_KLINE_MA_HEIGHT
         fSecondGraphHeight = fSecondGraphTotal - fSecondMAHeight
 
         //  有高级指标显示的情况下重新计算高度
         if (_kSubIndexType != EKLineSubIndexType.eksit_show_none) {
             fMainGraphHeight -= fSecondGraphTotal
-            fOneCellHeight = fMainGraphHeight / (kBTS_KLINE_ROW_NUM - 1)
+            fOneCellHeight = fMainGraphHeight / (kX4T_KLINE_ROW_NUM - 1)
         }
     }
 
@@ -1353,7 +1353,7 @@ class ViewKLine : ViewBase {
 
         //  初始化model池
         _kdataModelPool = mutableListOf()
-        for (i in 0 until kBTS_KLINE_MAX_SHOW_CANDLE_NUM) {
+        for (i in 0 until kX4T_KLINE_MAX_SHOW_CANDLE_NUM) {
             _kdataModelPool!!.add(MKlineItemData())
         }
 
@@ -1366,7 +1366,7 @@ class ViewKLine : ViewBase {
 
         //  初始化默认字体
         _fontname = Typeface.create(Typeface.SANS_SERIF, Typeface.NORMAL)
-        _fontsize = kBTS_KLINE_PRICE_VOL_FONTSIZE
+        _fontsize = kX4T_KLINE_PRICE_VOL_FONTSIZE
 
         //  REMARK：测量X轴、Y轴、MAX、MIN价格、VOL等字体高度用。
         var _size: Size = auxSizeWithText("0.123456789", _fontname!!, _fontsize!!)
@@ -1377,8 +1377,8 @@ class ViewKLine : ViewBase {
         m_scale_event_delegate = ScaleGestureDetector(_context, KlineScaleEventDelegate())
 
         // 缩放手势
-        _currCandleTotalWidth = kBTS_KLINE_CANDLE_WIDTH + kBTS_KLINE_SHADOW_WIDTH
-        _currCandleWidth = _currCandleTotalWidth - kBTS_KLINE_SHADOW_WIDTH
+        _currCandleTotalWidth = kX4T_KLINE_CANDLE_WIDTH + kX4T_KLINE_SHADOW_WIDTH
+        _currCandleWidth = _currCandleTotalWidth - kX4T_KLINE_SHADOW_WIDTH
     }
 
     // 设置画笔
@@ -1420,8 +1420,8 @@ class ViewKLine : ViewBase {
         val x = Math.min(max(point.x, 0f), _view_size.width)
 
         //  计算选中索引
-        val fWidthCandle = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH
-        val fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL
+        val fWidthCandle = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH
+        val fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL
         cross_candle_index = Math.min(max(round(x / fRealWidth), 0f), _kdataArrayShowing.count() - 1f).toInt()
         //  提交描绘
         crossView!!.postDrawCrossLayer(_kdataArrayShowing[cross_candle_index])
@@ -1433,8 +1433,8 @@ class ViewKLine : ViewBase {
     private fun _moveViewWithX(x: Float) {
         val offsetX = x.toInt()
 
-        var fWidthCandle = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH
-        var fRealWidth = fWidthCandle + kBTS_KLINE_INTERVAL
+        var fWidthCandle = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH
+        var fRealWidth = fWidthCandle + kX4T_KLINE_INTERVAL
 
         val offset_candle = (max(_panOffsetX + offsetX, 0f) / fRealWidth).roundToInt()
         if (offset_candle != _currCandleOffset) {
@@ -1448,10 +1448,10 @@ class ViewKLine : ViewBase {
      * 处理缩放
      */
     private fun _onScaleTrigger(scale: Float) {
-        val total_width = min(max((_currCandleTotalWidth * scale).roundToInt(), kBTS_KLINE_CANDLE_WIDTH_MIN + kBTS_KLINE_SHADOW_WIDTH), kBTS_KLINE_CANDLE_WIDTH_MAX + kBTS_KLINE_SHADOW_WIDTH)
+        val total_width = min(max((_currCandleTotalWidth * scale).roundToInt(), kX4T_KLINE_CANDLE_WIDTH_MIN + kX4T_KLINE_SHADOW_WIDTH), kX4T_KLINE_CANDLE_WIDTH_MAX + kX4T_KLINE_SHADOW_WIDTH)
         if (total_width != _currCandleTotalWidth) {
             _currCandleTotalWidth = total_width
-            _currCandleWidth = _currCandleTotalWidth - kBTS_KLINE_SHADOW_WIDTH
+            _currCandleWidth = _currCandleTotalWidth - kX4T_KLINE_SHADOW_WIDTH
             //  重绘
             postDraw()
         }
@@ -1493,7 +1493,7 @@ class ViewKLine : ViewBase {
                 //  更新偏移量
                 _panOffsetX += event.x - _startTouch.x
                 _panOffsetX = max(_panOffsetX, 0.0f)
-                val spaceW = _currCandleWidth * 2 + kBTS_KLINE_SHADOW_WIDTH + kBTS_KLINE_INTERVAL
+                val spaceW = _currCandleWidth * 2 + kX4T_KLINE_SHADOW_WIDTH + kX4T_KLINE_INTERVAL
                 _panOffsetX = min(_panOffsetX, max(_kdataArrayAll.size * spaceW - _view_size.width, 0.0f))
             }
             return true

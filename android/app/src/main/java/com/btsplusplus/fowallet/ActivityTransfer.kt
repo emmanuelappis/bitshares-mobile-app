@@ -395,9 +395,9 @@ class ActivityTransfer : BtsppActivity() {
                 none_zero_balances.put(balance_item)
             }
         }
-        //  如果资产列表为空，则添加默认值。{BTS:0}
+        //  如果资产列表为空，则添加默认值。{X4T:0}
         if (none_zero_balances.length() <= 0) {
-            val balance_object = jsonObjectfromKVS("asset_id", BTS_NETWORK_CORE_ASSET_ID, "amount", 0)
+            val balance_object = jsonObjectfromKVS("asset_id", X4T_NETWORK_CORE_ASSET_ID, "amount", 0)
             none_zero_balances = jsonArrayfrom(balance_object)
             _balances_hash!!.put(balance_object.getString("asset_id"), balance_object)
         }
@@ -422,9 +422,9 @@ class ActivityTransfer : BtsppActivity() {
             _transfer_args!!.put("to", _default_to!!)
         }
         if (_default_asset == null) {
-            //  TODO:fowallet 默认值，优先选择CNY、没CNY选择BTS。TODO：USD呢？？
+            //  TODO:fowallet 默认值，优先选择CNY、没CNY选择X4T。TODO：USD呢？？
             for (asset in _asset_list!!) {
-                if (asset!!.getString("id") == "1.3.113") {
+                if (asset!!.getString("id") == "1.3.10") {
                     _default_asset = asset
                     break
                 }

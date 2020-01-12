@@ -107,7 +107,7 @@ enum
                           nil];
     NSArray* pSection4 = [NSArray arrayWithObjects:
                           @"kSettingEx",                    //  设置,
-                          @"kLblCellAboutBtspp",            //  关于BTS++,
+                          @"kLblCellAboutBtspp",            //  关于X4T++,
                           nil];
     _dataArray = [[NSArray alloc] initWithObjects:pSection1, pSection2, pSection3, pSection4, nil];
     

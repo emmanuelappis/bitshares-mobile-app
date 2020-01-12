@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  BTS石墨烯私钥类型定义
+ *  X4T石墨烯私钥类型定义
  *  参考：https://github.com/satoshilabs/slips/issues/49。
  */
 typedef enum EHDBitsharesPermissionType

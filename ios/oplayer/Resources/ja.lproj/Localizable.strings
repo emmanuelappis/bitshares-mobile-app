@@ -272,7 +272,7 @@
 "kLoginImportTipsPleaseInputPassword" = "パスワードを入力してください";
 "kLoginImportTipsReadWalletFailed" = "ウオレットを読み取るファイルは失敗します。";
 "kLoginImportTipsInvalidFileOrPassword" = "ウオレットのファイルが無効或いはパスワードは正しくありません。";
-"kLoginImportTipsNotBTSWallet" = "このウオレットはBitSharesのウオレットはない。";
+"kLoginImportTipsNotX4TWallet" = "このウオレットはCRYPTONEXのウオレットはない。";
 "kLoginImportTipsWalletIsEmpty" = "このウオレットは何もありません，改めて選んでください。";
 "kLoginImportTipsWalletHaveManyAccounts" = "このウオレットは多数のアカウントを含みます，ウオレット導入はできません。";
 "kLoginImportTipsWalletNoPrivateKey" = "このウオレットはキーファイルはない，改めて選んでください。";
@@ -301,8 +301,8 @@
 "kLoginCellWalletPassword" = "アカウントパスワード";
 "kLoginCellActivePrivateKey" = "資金キーファイル ";
 "kLoginCellConfirmPassword" = "パスワードを確認してください";
-"kLoginRegTipsAccountMode" = "提示:アカウントパスワード対応フォーマット要求は疑問符をクリックして見ることができます。\n注意:BitSharesは、中心化ブロックチェーンへのアクセス暗証番号の応用が失われたり、忘れたりするとなかなか戻ってこないので、必ずきちんと保管してください。";
-"kLoginRegTipsWalletMode" = "ヒント:おウオレットパスワード対応フォーマット要件は闻き番号をクリックしてチェックすることができます。\n注意:BitSharesは中心化ブロックチェーンのアプリケーションで、ファイルやパスワードを失うと、忘れてしまうと戻ってきません。登录した后、ファイルをバックアップし、适切に保管することをお勧めします。※ ウオレットモードのご利用はお勧めです。";
+"kLoginRegTipsAccountMode" = "提示:アカウントパスワード対応フォーマット要求は疑問符をクリックして見ることができます。\n注意:CRYPTONEXは、中心化ブロックチェーンへのアクセス暗証番号の応用が失われたり、忘れたりするとなかなか戻ってこないので、必ずきちんと保管してください。";
+"kLoginRegTipsWalletMode" = "ヒント:おウオレットパスワード対応フォーマット要件は闻き番号をクリックしてチェックすることができます。\n注意:CRYPTONEXは中心化ブロックチェーンのアプリケーションで、ファイルやパスワードを失うと、忘れてしまうと戻ってきません。登录した后、ファイルをバックアップし、适切に保管することをお勧めします。※ ウオレットモードのご利用はお勧めです。";
 "kLoginFaucetTipsInvalidArguments" = "パラメーターが無効です。";
 "kLoginFaucetTipsInvalidAccountFmt" = "アカウントの書式が無効です。";
 "kLoginFaucetTipsAccountAlreadyExist" = "アカウントはすでに存在しました。";
@@ -676,7 +676,7 @@
 "kSettingCurrencyNameEUR" = "ユーロ";
 "kSettingCurrencyNameJPY" = "円";
 "kSettingCurrencyNameKRW" = "ウォン";
-"kSettingCurrencyNameBTS" = "BitSharesコア資産";
+"kSettingCurrencyNameX4T" = "X4Tコア資産";
 
 /* 各种VC标题栏名字 */
 "kVcTitleLogin" = "ログイン";
@@ -904,9 +904,9 @@
 "kLangKeyJa" = "日本語";
 "skip" = "PASS";
 "kNormalErrorInvalidArgs" = "無効なパラメーター。";
-"kAppName" = "BitShares";
+"kAppName" = "CRYPTONEX";
 "kAccount" = "アカウント";
-"kAboutMainDesc" ="\nBitSharesモバイルサイドのウオレットは石墨のアルケン技術に基づくので、製品から出発を体験して、採用します原生の技術開発の1モデル匹敵する一流センター化取る引く所のDEX。\n\n私達に連絡します\nWeChat：bts-pp\nE-mail：contact@btsplusplus.com\nTelegram：https://t.me/btsplusplus\n公式サイト：https://btspp.io\n";
+"kAboutMainDesc" ="\nCRYPTONEXモバイルサイドのウオレットは石墨のアルケン技術に基づくので、製品から出発を体験して、採用します原生の技術開発の1モデル匹敵する一流センター化取る引く所のDEX。\n\n私達に連絡します\nWeChat：bts-pp\nE-mail：contact@btsplusplus.com\nTelegram：https://t.me/btsplusplus\n公式サイト：https://btspp.io\n";
 "kAboutChannelAppStore" = "(商店版 & 渠道 %@)";
 "kAboutChannelWebsite" = "(官网版 & 渠道 %@)";
 "kAboutDebugVersion" = "(调试版)";
@@ -919,7 +919,7 @@
 "kNormalCellBtnCreateWallet" = "ウオレットを創建";
 "kTipsInitialize" = "初期化の中…";
 "kTipsBeRequesting" = "願いの中…";
-"kTipsTxFeeNotEnough" = "手数料が足りない，アカウントに足額の BTS/CNY/USD を確保してください";
+"kTipsTxFeeNotEnough" = "手数料が足りない，アカウントに足額の X4T/CNY/USD を確保してください";
 "kTipsTxRequestFailed" = "失敗を要請して、少しの後でまた試みてください。。";
 "kSearchPlaceholderAccount" = "有効な Bitshares アカウントを入力してください";
 "kSearchPlaceholderAsset" = "クリックして新しい資産を検索します";

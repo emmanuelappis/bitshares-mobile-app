@@ -168,7 +168,7 @@ class ActivityLaunch : BtsppActivity() {
     }
 
     /**
-     * 初始化BTS网络，APP启动时候执行一次。
+     * 初始化X4T网络，APP启动时候执行一次。
      */
     private fun asyncInitBitshares(): Promise {
         val p = Promise()

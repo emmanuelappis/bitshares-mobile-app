@@ -60,7 +60,7 @@ class BinSerializer {
     }
 
     /**
-     * 写入公钥对象。REMARK：BTS开头的地址。
+     * 写入公钥对象。REMARK：X4T开头的地址。
      */
     fun write_public_key(public_key_address: String): BinSerializer {
         val public_key = NativeInterface.sharedNativeInterface().bts_gen_public_key_from_b58address(public_key_address.utf8String(), ChainObjectManager.sharedChainObjectManager().grapheneAddressPrefix.utf8String())

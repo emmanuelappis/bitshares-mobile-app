@@ -1,17 +1,19 @@
 {
   "version": "0",
   "force": "0",
-  "appURL": "https://app.btspp.io",
+  "appURL": "https://app.cryptonex.market",
   "newVersionInfo": "",
   "newVersionInfoEn": "",
   "faucetURL": "",
   "wssNodes": {
     "default": [
-      "wss://btsapi.magicw.net/ws",
-      "wss://api.bts.mobi/ws",
+      "wss://node-cryptonex-asia.cryptonex.market:11020",
+      "wss://node-southasia.cryptonex.market:9090",
+      "wss://eur-west.cryptonex.market:11020",
+      "wss://eur-north.cryptonex.market:11020"
     ],
     "cn": [],
-    "en": [],
-  },
+    "en": []
+  }
 }
 

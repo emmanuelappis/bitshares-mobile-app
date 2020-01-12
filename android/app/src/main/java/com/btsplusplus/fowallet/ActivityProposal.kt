@@ -128,7 +128,7 @@ class ActivityProposal : BtsppActivity() {
                             multi_sign_member_skip_cache_ids.put(multi_sign_account_id, true)
                         }
                         val voting_account = account.getJSONObject("options").getString("voting_account")
-                        if (voting_account != BTS_GRAPHENE_PROXY_TO_SELF) {
+                        if (voting_account != X4T_GRAPHENE_PROXY_TO_SELF) {
                             query_account_ids.put(voting_account, true)
                         }
                     }
@@ -143,7 +143,7 @@ class ActivityProposal : BtsppActivity() {
                             multi_sign_member_skip_cache_ids.put(multi_sign_account_id, true)
                         }
                         val voting_account = account.getJSONObject("options").getString("voting_account")
-                        if (voting_account != BTS_GRAPHENE_PROXY_TO_SELF) {
+                        if (voting_account != X4T_GRAPHENE_PROXY_TO_SELF) {
                             query_account_ids.put(voting_account, true)
                         }
                     }
@@ -169,7 +169,7 @@ class ActivityProposal : BtsppActivity() {
                                     }
                                 }
                                 val voting_account = new_options.getString("voting_account")
-                                if (voting_account != BTS_GRAPHENE_PROXY_TO_SELF) {
+                                if (voting_account != X4T_GRAPHENE_PROXY_TO_SELF) {
                                     query_account_ids.put(voting_account, true)
                                 }
                             }
@@ -790,9 +790,9 @@ class ActivityProposal : BtsppActivity() {
         val mask = ViewMask(R.string.kTipsBeRequesting.xmlstring(this), this)
         mask.show()
 
-        chainMgr.queryAllGrapheneObjectsSkipCache(jsonArrayfrom(BTS_GRAPHENE_ACCOUNT_BTSPP_TEAM)).then {
+        chainMgr.queryAllGrapheneObjectsSkipCache(jsonArrayfrom(X4T_GRAPHENE_ACCOUNT_X4TPP_TEAM)).then {
             mask.dismiss()
-            val account = chainMgr.getChainObjectByID(BTS_GRAPHENE_ACCOUNT_BTSPP_TEAM)
+            val account = chainMgr.getChainObjectByID(X4T_GRAPHENE_ACCOUNT_X4TPP_TEAM)
             val blacklisted_accounts = account.optJSONArray("blacklisted_accounts")
             val proposer_uid = proposal.getString("proposer")
             val proposer_account = chainMgr.getChainObjectByID(proposer_uid)
@@ -950,7 +950,7 @@ class ActivityProposal : BtsppActivity() {
         //  否则，会出现手续费对象和权限者对象两个实体，那么新创建的提案存在2个required_active_approvals对象，对大部分客户端不友好。
         val fee_paying_account = if (needCreateProposal) approval_account!!.getString("id") else feePayingAccount.getString("id")
 
-        val opdata = jsonObjectfromKVS("fee", jsonObjectfromKVS("amount", 0, "asset_id", BTS_NETWORK_CORE_ASSET_ID),
+        val opdata = jsonObjectfromKVS("fee", jsonObjectfromKVS("amount", 0, "asset_id", X4T_NETWORK_CORE_ASSET_ID),
                 "fee_paying_account", fee_paying_account,
                 "proposal", proposal.getString("id"),
                 "active_approvals_to_add", active_approvals_to_add ?: JSONArray(),
