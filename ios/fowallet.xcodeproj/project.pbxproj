@@ -4119,7 +4119,7 @@
 						DevelopmentTeam = 8R3442PYU5;
 					};
 					ED37767D1654A8E90016EC64 = {
-						DevelopmentTeam = 8R3442PYU5;
+						DevelopmentTeam = 294B7LUB2M;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -6261,7 +6261,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2.8.0.1020;
 				DEPLOYMENT_POSTPROCESSING = NO;
-				DEVELOPMENT_TEAM = 8R3442PYU5;
+				DEVELOPMENT_TEAM = 294B7LUB2M;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6319,7 +6319,7 @@
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 2.8.0.1020;
 				DEPLOYMENT_POSTPROCESSING = YES;
-				DEVELOPMENT_TEAM = 8R3442PYU5;
+				DEVELOPMENT_TEAM = 294B7LUB2M;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
