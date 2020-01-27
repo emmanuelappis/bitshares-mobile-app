@@ -123,6 +123,27 @@
                 "id": "1.3.17",
                 "precision": 6
         },
+        "CRYPTONEX.ETH": {
+            "symbol": "CRYPTONEX.ETH",
+                "id": "1.3.22",
+                "precision": 6
+        },
+        "CRYPTONEX.DASH": {
+            "symbol": "CRYPTONEX.DASH",
+                "id": "1.3.23",
+                "precision": 8
+        },
+        "CRYPTONEX.BTG": {
+            "symbol": "CRYPTONEX.BTG",
+                "id": "1.3.30",
+                "precision": 6
+        },
+        
+        "ALG": {
+            "symbol": "ALG",
+                "id": "1.3.18",
+                "precision": 6
+        },
         "GDEX.BTC": {
             "symbol": "GDEX.BTC",
             "id": "1.3.2241",
@@ -322,7 +343,11 @@
                     "quote_list": [
                         "CRYPTONEX.BTC",
                         "X4T",
-                        "CRYPTONEX.USDT"
+                        "CRYPTONEX.USDT",
+                        "CRYPTONEX.DASH",
+                        "CRYPTONEX.ETH",
+                        "CRYPTONEX.BTG",
+                        "ALG"
                         
                     ]
                 }
@@ -339,7 +364,11 @@
                     "quote_list": [
                         "CRYPTONEX.BTC",
                         "X4T",
-                        "CNY"
+                        "CNY",
+                        "CRYPTONEX.DASH",
+                        "CRYPTONEX.ETH",
+                        "CRYPTONEX.BTG",
+                        "ALG"
                     ]
                 }
             ]
@@ -354,7 +383,12 @@
                     "group_key": "MAIN",
                     "quote_list": [
                         "CNY",
+                        "X4T",
                         "CRYPTONEX.USDT",
+                        "CRYPTONEX.DASH",
+                        "CRYPTONEX.ETH",
+                        "CRYPTONEX.BTG",
+                        "ALG"
 
                     ]
                 }

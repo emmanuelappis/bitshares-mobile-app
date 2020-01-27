@@ -387,7 +387,7 @@ enum
 //                    return nil;
 //                })];
 //                return;
-                vc = [[VCBtsaiWebView alloc] initWithUrl:@"https://btspp.io/qa.html"];
+                vc = [[VCBtsaiWebView alloc] initWithUrl:@"https://cryptonex.market/qa/"];
                 vc.title = NSLocalizedString(@"kVcTitleFAQ", @"常见问题");
             }
                 break;

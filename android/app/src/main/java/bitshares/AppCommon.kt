@@ -9,7 +9,7 @@ const val kBtsWebsocketReconnectSuccess = "kBtsWebsocketReconnectSuccess"
 const val kX4TObjectCacheExpireTime = 86400
 
 //  5星好评地址 TODO
-const val kApp5StarURL = "https://play.google.com/store/apps/details?id=org.bitshares.app"
+const val kApp5StarURL = "https://play.google.com/store/apps/details?id=com.cryptonex.market"
 
 //  UI - 部分参数配置
 const val kUITableViewLeftEdge = 12.0f       //  左边距

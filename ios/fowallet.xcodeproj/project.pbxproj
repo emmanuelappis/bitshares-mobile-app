@@ -2377,7 +2377,7 @@
 		ED11A6B31851BBC600E0914A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		ED1AB88A18781B3B007DC42C /* AppCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppCacheManager.h; path = ios/AppCacheManager.h; sourceTree = "<group>"; };
 		ED1AB88B18781B3B007DC42C /* AppCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppCacheManager.m; path = ios/AppCacheManager.m; sourceTree = "<group>"; };
-		ED37767E1654A8E90016EC64 /* fowallet-appstore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fowallet-appstore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED37767E1654A8E90016EC64 /* cryptonex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cryptonex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3776821654A8E90016EC64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED3776841654A8E90016EC64 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		ED3776861654A8E90016EC64 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -3855,7 +3855,7 @@
 		ED37767F1654A8E90016EC64 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED37767E1654A8E90016EC64 /* fowallet-appstore.app */,
+				ED37767E1654A8E90016EC64 /* cryptonex.app */,
 				3FB8FA9821CE66C200DA88E2 /* fowallet-website.app */,
 				3F676A27230E9EC100E98C14 /* fowallet-baichenglian.app */,
 			);
@@ -4083,9 +4083,9 @@
 			productReference = 3FB8FA9821CE66C200DA88E2 /* fowallet-website.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ED37767D1654A8E90016EC64 /* fowallet-appstore */ = {
+		ED37767D1654A8E90016EC64 /* cryptonex */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED3778F81654A8FB0016EC64 /* Build configuration list for PBXNativeTarget "fowallet-appstore" */;
+			buildConfigurationList = ED3778F81654A8FB0016EC64 /* Build configuration list for PBXNativeTarget "cryptonex" */;
 			buildPhases = (
 				B7822D061D6D7AD6006DFC59 /* ShellScript */,
 				F56906F019C3273600EFBD79 /* ShellScript */,
@@ -4099,9 +4099,9 @@
 			);
 			dependencies = (
 			);
-			name = "fowallet-appstore";
+			name = cryptonex;
 			productName = oplayer;
-			productReference = ED37767E1654A8E90016EC64 /* fowallet-appstore.app */;
+			productReference = ED37767E1654A8E90016EC64 /* cryptonex.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -4120,6 +4120,7 @@
 					};
 					ED37767D1654A8E90016EC64 = {
 						DevelopmentTeam = 294B7LUB2M;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -4157,7 +4158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ED37767D1654A8E90016EC64 /* fowallet-appstore */,
+				ED37767D1654A8E90016EC64 /* cryptonex */,
 				3FB8F89621CE66C200DA88E2 /* fowallet-website */,
 				3F6767FC230E9EC100E98C14 /* fowallet-baichenglian */,
 			);
@@ -6257,6 +6258,7 @@
 				CODE_SIGN_ENTITLEMENTS = fowallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 2.8.0.1020;
@@ -6295,9 +6297,10 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.bitshares.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cryptonex.market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -6315,6 +6318,7 @@
 				CODE_SIGN_ENTITLEMENTS = fowallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 2.8.0.1020;
@@ -6352,9 +6356,10 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.bitshares.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cryptonex.market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -6391,7 +6396,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED3778F81654A8FB0016EC64 /* Build configuration list for PBXNativeTarget "fowallet-appstore" */ = {
+		ED3778F81654A8FB0016EC64 /* Build configuration list for PBXNativeTarget "cryptonex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED3778F91654A8FB0016EC64 /* Debug */,
